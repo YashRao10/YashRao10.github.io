@@ -28,6 +28,7 @@ body{
 .hero h1 span{color:var(--accent)}
 .hero p{font-size:14px;color:var(--muted);line-height:1.8;max-width:680px}
 .hero p strong{color:var(--text)}
+.hero-note{margin-top:14px;font-size:12.5px;color:var(--muted);border-left:2px solid var(--border);padding-left:12px;max-width:640px}
 
 .section-label{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 
@@ -45,6 +46,9 @@ body{
 .card-badge{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap}
 .badge-live{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3)}
 .badge-research{background:rgba(129,140,248,.12);color:var(--accent2);border:1px solid rgba(129,140,248,.3)}
+.badge-progress{background:rgba(251,191,36,.12);color:var(--yellow);border:1px solid rgba(251,191,36,.3)}
+.card.no-link{cursor:default}
+.card.no-link:hover{border-color:var(--border);transform:none}
 .card-desc{font-size:12.5px;color:var(--muted);line-height:1.65}
 .card-finding{font-size:12px;color:var(--text);line-height:1.6;background:var(--dim);border-left:2px solid var(--accent);padding:8px 10px;border-radius:4px;margin-top:2px}
 .card-finding b{color:var(--accent)}
@@ -66,9 +70,10 @@ footer a:hover{color:var(--accent)}
 <div class="wrap">
 
   <div class="hero">
-    <div class="hero-eyebrow">Yash Rao &middot; TIM + Economics</div>
-    <h1>Applied projects at the seam between <span>markets</span> and <span>systems</span>.</h1>
-    <p>I study Technology &amp; Information Management and Economics, and I'd rather build the instrument than just read about it. Everything below is a real, working tool run on real (or real-adjacent) data — a live trade log, honest-negative-results-included causal inference, return attribution, and a macro nowcast. No dollar amounts or position sizes are ever posted; the point is the reasoning and the method, not the account size.</p>
+    <div class="hero-eyebrow">Yash Rao &middot; Career Path &amp; Goals</div>
+    <h1>Building toward work at the seam between <span>markets</span> and applied <span>engineering</span>.</h1>
+    <p>I'd rather build the instrument than just read about it. This page tracks that, honestly — live tools, finished projects, and the ones still in progress, not just the polished-and-done ones. A live trade log, causal inference that reports its own negative results, return attribution, a macro nowcast, a transformer built from scratch, and a red-team harness pointed at my own agents. No dollar amounts or position sizes are ever posted; the point is the reasoning and the method, not the account size.</p>
+    <p class="hero-note">Also currently doing DO-178C tool-qualification consulting for an aerospace-compliance vendor — building demo projects that show full requirements-to-test traceability end to end. Client and project details aren't public; the work below is what is.</p>
   </div>
 
   <div class="section-label">Live</div>
@@ -114,6 +119,29 @@ footer a:hover{color:var(--accent)}
       <div class="card-desc">A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of "right now," not the quarter-old official print.</div>
       <div class="card-link">See the current estimate</div>
     </a>
+
+  </div>
+
+  <div class="section-label">In progress</div>
+  <div class="cards">
+
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="card-title">GPT From Scratch</div>
+        <div class="card-badge badge-progress">Phase 1 done</div>
+      </div>
+      <div class="card-desc">A decoder-only transformer built from first principles in PyTorch — no <code>nn.Transformer</code>, no pretrained weights. Hand-built tokenizer, causal self-attention, positional embeddings, autoregressive sampling. The point is understanding what's actually underneath the LLM tools I use daily, not just calling one through an API.</div>
+      <div class="card-finding"><b>Status:</b> Phase 1 (character-level, tiny-Shakespeare) closed — best config hit val loss 1.6164. Phase 2 (BPE tokenization) is next.</div>
+    </div>
+
+    <div class="card no-link">
+      <div class="card-top">
+        <div class="card-title">AI Security</div>
+        <div class="card-badge badge-progress">Phase 1 built</div>
+      </div>
+      <div class="card-desc">Red-teaming and a NIST AI RMF self-audit applied to my own Claude Code subagents, not treated as an abstract topic — a prompt-injection harness that sends real jailbreak/injection payloads against a target agent's actual, verbatim system prompt and checks whether it held the line.</div>
+      <div class="card-finding"><b>First target:</b> the subagent with live trade-execution access. First manual audit run: 18/18 checks passed, and it surfaced a real negation-blindness bug in a separate classifier.</div>
+    </div>
 
   </div>
 
