@@ -224,7 +224,20 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   </div>
 
-  <div class="section-label"><span class="num">03</span> In progress</div>
+  <div class="section-label"><span class="num">03</span> Tooling</div>
+  <div class="cards">
+
+    <button class="tile" type="button" data-project="agent-tooling" aria-label="View details: Agent Tooling">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">AG</div>
+      <div class="tile-title">Agent Tooling</div>
+      <div class="tile-hook">Specialized agents, not one big assistant</div>
+      <div class="tile-badge badge-research">4 built, validated</div>
+    </button>
+
+  </div>
+
+  <div class="section-label"><span class="num">04</span> In progress</div>
   <div class="cards">
 
     <button class="tile" type="button" data-project="gpt-from-scratch" aria-label="View details: GPT From Scratch">
@@ -253,7 +266,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   </div>
 
-  <div class="section-label"><span class="num">04</span> Notes</div>
+  <div class="section-label"><span class="num">05</span> Notes</div>
   <div class="cards">
     <button class="tile" type="button" data-project="disclosure" aria-label="View details: No Dollar Amounts">
       <div class="tile-plus" aria-hidden="true">+</div>
@@ -264,7 +277,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     </button>
   </div>
 
-  <div class="section-label"><span class="num">05</span> Elsewhere</div>
+  <div class="section-label"><span class="num">06</span> Elsewhere</div>
   <div class="sub-links">
     <a class="sub-link" href="https://github.com/YashRao10" target="_blank" rel="noopener">GitHub</a>
     <a class="sub-link" href="https://www.linkedin.com/in/yash-r-84866a171/" target="_blank" rel="noopener">LinkedIn</a>
@@ -315,6 +328,14 @@ const PROJECTS = {
     ],
     finding:'<b>Also notable:</b> the GOOGL capex-guidance case study found the sell-off was a shared hyperscaler re-pricing move, not a GOOGL-specific punishment — MSFT\'s placebo gap was actually larger.',
     link:'causal-toolkit/index.html', linkText:'Browse case studies'
+  },
+  'agent-tooling': {
+    badge:'4 built, validated', badgeClass:'badge-research',
+    body:[
+      "A set of custom coding agents, each built only for a workflow that's genuinely recurring and checklist-heavy across real sessions — not one general-purpose assistant, since that's easy to build and hard to actually trust. One handles a financial data-sync-and-verification loop, one renders documents against a fixed template and print pipeline, one runs a build-test-coverage loop on embedded C code, and one does guided read-only navigation of an internal tool.",
+      "Each agent encodes hard-won process rules directly into its own prompt — the specific gotchas, verification steps, and defaults learned the hard way in earlier sessions — so a lesson learned once doesn't have to get relearned by hand every time."
+    ],
+    finding:'<b>Caught a real bug on its first live run:</b> one agent\'s own checklist had a wrong directional rule baked in for a volatility ETP — documented as moving "inversely" to spot VIX, when it actually moves the same direction. It flagged the contradiction against that day\'s own market narrative instead of blindly applying the wrong rule, and got corrected on the spot.'
   },
   'disclosure': {
     badge:'Policy', badgeClass:'badge-progress',
