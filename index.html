@@ -37,8 +37,19 @@ body{
 .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:72px 24px 64px}
 
 .bg-decor{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.bg-circuit{stroke:var(--accent);stroke-width:1.5;fill:none;opacity:.24}
-.bg-circuit circle{fill:var(--accent)}
+.bg-code{opacity:.4}
+.code-window{fill:var(--bg2);stroke:var(--border);stroke-width:1.5}
+.code-titlebar{stroke:var(--border);stroke-width:1.5}
+.code-dot{opacity:.7}
+.code-dot-r{fill:var(--red)}
+.code-dot-y{fill:var(--accent)}
+.code-dot-g{fill:var(--green)}
+.code-line{stroke-width:4;stroke-linecap:round;opacity:.55}
+.code-kw{stroke:var(--accent)}
+.code-fn{stroke:var(--accent2)}
+.code-str{stroke:var(--green)}
+.code-plain{stroke:var(--muted)}
+.code-com{stroke:var(--muted);opacity:.32}
 
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
 .ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
@@ -157,29 +168,24 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </div>
 </div>
 <svg class="bg-decor" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <g class="bg-circuit" id="chipCluster">
-    <!-- IC chip with breakout bus traces, bottom-left -->
-    <rect x="40" y="780" width="120" height="76" rx="4"/>
-    <path d="M 60,780 L 60,720 L 175,720 L 175,635"/>
-    <path d="M 85,780 L 85,670 L 240,670 L 240,600"/>
-    <path d="M 110,780 L 110,610"/>
-    <path d="M 135,780 L 135,650 L 300,650 L 300,555"/>
-    <path d="M 40,805 L -20,805"/>
-    <path d="M 40,825 L -30,825 L -30,880"/>
-    <path d="M 160,800 L 210,800 L 210,860"/>
-    <path d="M 160,825 L 195,825"/>
-    <circle cx="60" cy="720" r="4"/>
-    <circle cx="175" cy="635" r="4"/>
-    <circle cx="85" cy="670" r="4"/>
-    <circle cx="240" cy="600" r="4"/>
-    <circle cx="110" cy="610" r="4"/>
-    <circle cx="135" cy="650" r="4"/>
-    <circle cx="300" cy="555" r="4"/>
-    <circle cx="210" cy="860" r="4"/>
-    <circle cx="195" cy="825" r="4"/>
+  <g class="bg-code" id="codeCluster">
+    <!-- code-editor window, bottom-left: title bar + 3 dots + staggered "code" lines -->
+    <rect class="code-window" x="30" y="600" width="270" height="200" rx="10"/>
+    <line class="code-titlebar" x1="30" y1="636" x2="300" y2="636"/>
+    <circle class="code-dot code-dot-r" cx="52" cy="618" r="5"/>
+    <circle class="code-dot code-dot-y" cx="70" cy="618" r="5"/>
+    <circle class="code-dot code-dot-g" cx="88" cy="618" r="5"/>
+    <line class="code-line code-kw"   x1="52"  y1="662" x2="120" y2="662"/>
+    <line class="code-line code-fn"   x1="128" y1="662" x2="200" y2="662"/>
+    <line class="code-line code-str"  x1="70"  y1="686" x2="175" y2="686"/>
+    <line class="code-line code-plain" x1="70" y1="710" x2="140" y2="710"/>
+    <line class="code-line code-kw"   x1="52"  y1="734" x2="100" y2="734"/>
+    <line class="code-line code-fn"   x1="108" y1="734" x2="230" y2="734"/>
+    <line class="code-line code-plain" x1="70" y1="758" x2="255" y2="758"/>
+    <line class="code-line code-com"  x1="52"  y1="782" x2="160" y2="782"/>
   </g>
-  <!-- same chip cluster, rotated 180deg about the canvas center -> a mirrored copy top-right -->
-  <use href="#chipCluster" transform="rotate(180 800 450)"/>
+  <!-- same window, rotated 180deg about the canvas center -> a mirrored copy top-right -->
+  <use href="#codeCluster" transform="rotate(180 800 450)"/>
 </svg>
 <div class="wrap">
 
