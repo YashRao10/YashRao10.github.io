@@ -190,6 +190,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="section-label"><span class="num">02</span> Research instruments</div>
   <div class="cards">
 
+    <button class="tile" type="button" data-project="regime-classifier" aria-label="View details: Regime Classifier">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">RC</div>
+      <div class="tile-title">Regime Classifier</div>
+      <div class="tile-hook">What macro regime are we in, and what usually wins in it?</div>
+      <div class="tile-badge badge-research">Rule-based + backtest</div>
+    </button>
+
     <button class="tile" type="button" data-project="causal-toolkit" aria-label="View details: Causal Toolkit">
       <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">CT</div>
@@ -289,6 +297,15 @@ const PROJECTS = {
     ],
     finding:'<b>Style:</b> mostly long-term positioning around AI infrastructure plus sector-diversification adds — not day-trading, not options.',
     link:'https://yashrao10.github.io/signal-log/', linkText:'Open the log'
+  },
+  'regime-classifier': {
+    badge:'Rule-based + backtest', badgeClass:'badge-research',
+    body:[
+      "A hand-built classifier that labels the current macro regime — Hawkish Tightening, Dovish Easing, Inverted Curve/Recession Risk, Stagflation-ish, Disinflation/Goldilocks, or Neutral — off the 2s10s spread, Fed funds trend, CPI trend, and unemployment trend, then shows how all 11 GICS sector SPDRs have actually performed historically in that regime, back to 1999.",
+      "Explicitly documented as a hand-built ruleset, not a peer-reviewed model — and honest about its own blind spot: it trades on a trailing 6-month window, so it can lag a real policy pivot until enough post-pivot months accumulate."
+    ],
+    finding:'<b>Caught its own limits:</b> a pivot-detection check was added to flag exactly this lag — then tested against a real hawkish pivot and correctly did NOT fire, because the pivot was a forward-looking dot-plot signal, not yet present in the realized-rate data the model actually sees.',
+    link:'https://yashrao10.github.io/signal-log/', linkText:'See it live on Signal Log'
   },
   'causal-toolkit': {
     badge:'Synthetic control', badgeClass:'badge-research',
