@@ -50,6 +50,15 @@ body{
 .code-str{stroke:var(--green)}
 .code-plain{stroke:var(--muted)}
 .code-com{stroke:var(--muted);opacity:.32}
+.code-cursor{fill:var(--accent);animation:cursor-blink 1s steps(1) infinite}
+@keyframes cursor-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+.bg-snippets text{
+  font-family:'Consolas','Courier New',monospace;font-size:13px;letter-spacing:.2px;
+  fill:var(--muted);opacity:.11;
+}
+.bg-snippets text:nth-child(odd){fill:var(--accent2)}
+@media(prefers-reduced-motion:reduce){.code-cursor{animation:none}}
 
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
 .ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
@@ -183,9 +192,22 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <line class="code-line code-fn"   x1="108" y1="734" x2="230" y2="734"/>
     <line class="code-line code-plain" x1="70" y1="758" x2="255" y2="758"/>
     <line class="code-line code-com"  x1="52"  y1="782" x2="160" y2="782"/>
+    <rect class="code-cursor" x="165" y="775" width="8" height="14"/>
   </g>
   <!-- same window, rotated 180deg about the canvas center -> a mirrored copy top-right -->
   <use href="#codeCluster" transform="rotate(180 800 450)"/>
+
+  <!-- real code snippets, one line each, pulled from actual work on this hub.
+       Kept strictly in the left/right margins (outside the ~465-980 content
+       column and clear of both code-window rects) so nothing overlaps tiles/text. -->
+  <g class="bg-snippets">
+    <text x="36" y="260">pytest -k test_classify   # 19 passed</text>
+    <text x="36" y="440">attn = softmax(q @ k.T / sqrt(d_k)) @ v</text>
+    <text x="36" y="860">info = yf.Ticker(sym).fast_info</text>
+    <text x="1030" y="460">git commit -m "Add live sector/market ticker tape"</text>
+    <text x="1030" y="650">rmse_gate = fit_rmse / treated_std  # &gt;1.0x: don't trust it</text>
+    <text x="1030" y="830">def classify(fed_trend, cpi_trend, curve, unemp):</text>
+  </g>
 </svg>
 <div class="wrap">
 
