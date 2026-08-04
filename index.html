@@ -184,10 +184,23 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <text class="code-line code-plain" x="62" y="774">chg = (last-prev)/prev*100</text>
     <text class="code-line code-com"   x="50" y="796"># -&gt; data/ticker.json, 30min</text>
   </g>
-  <!-- same window, translated to the top-right corner (not rotated -- a 180deg
-       rotation flips the text upside-down and unreadable, caught on the live
-       screenshot) so the code stays upright in both copies -->
-  <use href="#codeCluster" transform="translate(1220,-530)"/>
+  <!-- second, independently-authored window, top-right: real lines from
+       finance-projects/regime/classify.py's REGIMES list, not a mirror of
+       the first window -- each box now shows different real code -->
+  <g class="bg-code" id="codeCluster2">
+    <rect class="code-window" x="1250" y="70" width="320" height="210" rx="10"/>
+    <line class="code-titlebar" x1="1250" y1="106" x2="1570" y2="106"/>
+    <circle class="code-dot code-dot-r" cx="1272" cy="88" r="5"/>
+    <circle class="code-dot code-dot-y" cx="1290" cy="88" r="5"/>
+    <circle class="code-dot code-dot-g" cx="1308" cy="88" r="5"/>
+    <text class="code-line code-kw"   x="1270" y="134">REGIMES = [</text>
+    <text class="code-line code-str"  x="1282" y="156">"Stagflation-ish",</text>
+    <text class="code-line code-str"  x="1282" y="178">"Hawkish Tightening",</text>
+    <text class="code-line code-str"  x="1282" y="200">"Dovish Easing",</text>
+    <text class="code-line code-str"  x="1282" y="222">"Disinflation / Goldilocks",</text>
+    <text class="code-line code-str"  x="1282" y="244">"Neutral / Hold",</text>
+    <text class="code-line code-com"  x="1270" y="266">]  # rule-based since 1999</text>
+  </g>
 </svg>
 <div class="wrap">
 
