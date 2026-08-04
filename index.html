@@ -51,6 +51,18 @@ body{
 .code-plain{fill:var(--muted)}
 .code-com{fill:var(--muted);opacity:.4}
 
+.bg-logcard{opacity:.4}
+.log-card-bg{fill:var(--bg2);stroke:var(--border);stroke-width:1.5}
+.log-card-accent{fill:var(--accent2)}
+.log-badge{font-family:'Consolas','Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:.5px}
+.log-badge-buy{fill:var(--accent2)}
+.log-badge-conv{fill:var(--muted)}
+.log-ticker{font-family:'Consolas','Courier New',monospace;font-size:13px;font-weight:700;fill:var(--text)}
+.log-date{font-family:'Consolas','Courier New',monospace;font-size:9.5px;fill:var(--muted)}
+.log-thesis{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;font-size:11px;fill:var(--muted)}
+.log-perf{font-family:'Consolas','Courier New',monospace;font-size:10.5px;font-weight:700;fill:var(--accent2)}
+.log-status{font-family:'Consolas','Courier New',monospace;font-size:9px;fill:var(--muted)}
+
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
 .ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
 .ticker-viewport{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
@@ -236,6 +248,22 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <text class="code-line code-str"   x="1270" y="752">MSYS_NO_PATHCONV=1 wsl bash -c</text>
     <text class="code-line code-fn"    x="1270" y="774">gcc -std=c99 -Wall -Wextra ...</text>
     <text class="code-line code-com"   x="1270" y="796"># DAL scales rigor, not mechanics</text>
+  </g>
+
+  <!-- fifth element: a mock trade-log card, real entry pulled from YR Signal
+       itself (public-trade-signals/index.html, Jul 16 2026 XLU buy) -- the
+       trading side of the page gets a card, not just code -->
+  <g class="bg-logcard" id="logCard">
+    <rect class="log-card-bg" x="30" y="380" width="320" height="150" rx="10"/>
+    <rect class="log-card-accent" x="30" y="380" width="4" height="150"/>
+    <text class="log-badge log-badge-buy"  x="52"  y="408">BUY</text>
+    <text class="log-badge log-badge-conv" x="92"  y="408">STARTER</text>
+    <text class="log-ticker"               x="168" y="409">XLU</text>
+    <text class="log-date"                 x="222" y="408">Jul 16, 2026</text>
+    <text class="log-thesis" x="52" y="436">New utilities position &mdash; filling a real,</text>
+    <text class="log-thesis" x="52" y="454">long-flagged sector gap in the book.</text>
+    <text class="log-perf"   x="52" y="486">XLU +1.3% since entry</text>
+    <text class="log-status" x="52" y="504">Filled Jul 16 &middot; from YR Signal</text>
   </g>
 </svg>
 <div class="wrap">
