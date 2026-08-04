@@ -74,6 +74,44 @@ body{
 footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);font-family:'Consolas','Courier New',monospace;font-size:10.5px;color:var(--muted);letter-spacing:.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 footer a{color:var(--muted)}
 footer a:hover{color:var(--accent)}
+
+button.card{all:unset;box-sizing:border-box;cursor:pointer;width:100%}
+button.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(6,7,9,.72);backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;padding:24px;z-index:50;
+  opacity:0;pointer-events:none;transition:opacity .18s ease;
+}
+.modal-backdrop.open{opacity:1;pointer-events:auto}
+.modal{
+  background:var(--card);border:1px solid var(--border);border-radius:6px;
+  max-width:560px;width:100%;max-height:82vh;overflow-y:auto;
+  padding:32px 32px 28px;position:relative;
+  transform:translateY(10px) scale(.98);transition:transform .18s ease;
+  font-family:-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+.modal-backdrop.open .modal{transform:translateY(0) scale(1)}
+.modal-close{
+  all:unset;position:absolute;top:18px;right:18px;cursor:pointer;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  color:var(--muted);border:1px solid var(--border);border-radius:50%;font-size:15px;
+  font-family:-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+.modal-close:hover{color:var(--text);border-color:var(--accent)}
+.modal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px;padding-right:32px}
+.modal-title{font-size:26px;font-weight:700;color:var(--text);font-family:'Iowan Old Style','Georgia','Charter',serif;line-height:1.15}
+.modal-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px}
+.modal-body p:last-of-type{margin-bottom:0}
+.modal-finding{font-size:13px;color:var(--text);line-height:1.65;background:var(--dim);border-left:2px solid var(--accent2);padding:12px 14px;border-radius:3px;margin-top:16px}
+.modal-finding b{color:var(--accent2)}
+.modal-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:22px;
+  font-family:'Consolas','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:.5px;
+  color:#0c0d10;background:var(--accent);padding:9px 16px;border-radius:3px;text-decoration:none;
+}
+.modal-link:hover{background:var(--accent2)}
+@media(prefers-reduced-motion:reduce){.modal-backdrop,.modal{transition:none}}
 </style>
 </head>
 <body>
@@ -89,20 +127,20 @@ footer a:hover{color:var(--accent)}
 
   <div class="section-label"><span class="num">01</span> Live</div>
   <div class="cards">
-    <a class="card wide-card" href="https://yashrao10.github.io/signal-log/" target="_blank" rel="noopener">
+    <button class="card wide-card" type="button" data-project="signal-log">
       <div class="card-top">
         <div class="card-title">YR Signal — public trade log</div>
         <div class="card-badge badge-live">Live · updated as trades happen</div>
       </div>
       <div class="card-desc">A running log of real trades and the reasoning behind them (buy/sell/trim, thesis, conviction level), plus an Econ Briefing tab tracking rates/inflation/jobs and a hand-built market-regime classifier backtested to 1999.</div>
       <div class="card-link">Open the log</div>
-    </a>
+    </button>
   </div>
 
   <div class="section-label"><span class="num">02</span> Research instruments</div>
   <div class="cards">
 
-    <a class="card" href="causal-toolkit/index.html">
+    <button class="card" type="button" data-project="causal-toolkit">
       <div class="card-top">
         <div class="card-title">Causal Toolkit</div>
         <div class="card-badge badge-research">Synthetic control</div>
@@ -110,9 +148,9 @@ footer a:hover{color:var(--accent)}
       <div class="card-desc">Did an event actually cause a stock to break from its peers, or is the "effect" just a pre-existing trend? Abadie-Diamond-Hainmueller synthetic control with a fit-quality gate that refuses to hand you a number it doesn't trust.</div>
       <div class="card-finding"><b>Notable result:</b> BE's post-short-seller-report decline ranks <i>last</i> of its peer group in the placebo test — the honest read is "not a clear break," not the dramatic story a reader might expect.</div>
       <div class="card-link">Browse case studies</div>
-    </a>
+    </button>
 
-    <a class="card" href="factor-decomposition/index.html">
+    <button class="card" type="button" data-project="factor-decomposition">
       <div class="card-top">
         <div class="card-title">Factor Decomposition</div>
         <div class="card-badge badge-research">3-factor OLS</div>
@@ -120,39 +158,39 @@ footer a:hover{color:var(--accent)}
       <div class="card-desc">For each holding: how much of its return rode Market, Sector, or Rates — versus being genuinely stock-specific? Factors orthogonalized in sequence so betas are clean, not confounded. R&sup2; gated up front, not glossed over on low-confidence names.</div>
       <div class="card-finding"><b>Method note:</b> log returns throughout make the split exactly additive — no compounding cross-terms to hand-wave away.</div>
       <div class="card-link">Browse holdings</div>
-    </a>
+    </button>
 
-    <a class="card wide-card" href="fred-nowcast/index.html">
+    <button class="card wide-card" type="button" data-project="fred-nowcast">
       <div class="card-top">
         <div class="card-title">FRED Nowcast</div>
         <div class="card-badge badge-research">Bridge-equation OLS</div>
       </div>
       <div class="card-desc">A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of "right now," not the quarter-old official print.</div>
       <div class="card-link">See the current estimate</div>
-    </a>
+    </button>
 
   </div>
 
   <div class="section-label"><span class="num">03</span> In progress</div>
   <div class="cards">
 
-    <div class="card no-link">
+    <button class="card" type="button" data-project="gpt-from-scratch">
       <div class="card-top">
         <div class="card-title">GPT From Scratch</div>
         <div class="card-badge badge-progress">Phase 1 done</div>
       </div>
       <div class="card-desc">A decoder-only transformer built from first principles in PyTorch — no <code>nn.Transformer</code>, no pretrained weights. Hand-built tokenizer, causal self-attention, positional embeddings, autoregressive sampling. The point is understanding what's actually underneath the LLM tools I use daily, not just calling one through an API.</div>
       <div class="card-finding"><b>Status:</b> Phase 1 (character-level, tiny-Shakespeare) closed — best config hit val loss 1.6164. Phase 2 (BPE tokenization) is next.</div>
-    </div>
+    </button>
 
-    <div class="card no-link">
+    <button class="card" type="button" data-project="ai-security">
       <div class="card-top">
         <div class="card-title">AI Security</div>
         <div class="card-badge badge-progress">Phase 1 built</div>
       </div>
       <div class="card-desc">Red-teaming and a NIST AI RMF self-audit applied to my own Claude Code subagents, not treated as an abstract topic — a prompt-injection harness that sends real jailbreak/injection payloads against a target agent's actual, verbatim system prompt and checks whether it held the line.</div>
       <div class="card-finding"><b>First target:</b> the subagent with live trade-execution access. First manual audit run: 18/18 checks passed, and it surfaced a real negation-blindness bug in a separate classifier.</div>
-    </div>
+    </button>
 
   </div>
 
@@ -167,5 +205,108 @@ footer a:hover{color:var(--accent)}
     <span>All figures here are public market data or public-safe research output — never dollar amounts or position sizes.</span>
   </footer>
 </div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&#10005;</button>
+    <div class="modal-top">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="card-badge" id="modalBadge"></div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <a class="modal-link" id="modalLink" target="_blank" rel="noopener"></a>
+  </div>
+</div>
+
+<script>
+const PROJECTS = {
+  'signal-log': {
+    badge:'Live · updated as trades happen', badgeClass:'badge-live',
+    body:[
+      "A public log of real trades and the reasoning behind them — buy, sell, or trim, with the date and the why. No dollar amounts or position sizes are ever posted; the goal is to share ideas, not let anyone reverse-engineer account size.",
+      "Four tabs beyond the trade log itself: Insights (longer market-analysis posts, an earnings calendar, sector performance), Econ Briefing (rates/inflation/jobs tracking plus a hand-built market-regime classifier backtested to 1999, and an Event Study section running synthetic-control tests on macro events), and Watchlist (researched but not yet bought)."
+    ],
+    finding:'<b>Style:</b> mostly long-term positioning around AI infrastructure plus sector-diversification adds — not day-trading, not options.',
+    link:'https://yashrao10.github.io/signal-log/', linkText:'Open the log'
+  },
+  'causal-toolkit': {
+    badge:'Synthetic control', badgeClass:'badge-research',
+    body:[
+      "Point it at any macro/company event and any treated ticker, and it runs an Abadie-Diamond-Hainmueller synthetic-control test to check whether the event actually caused a measurable break from a hand-picked peer group — or whether the \"effect\" is just riding a pre-existing trend.",
+      "A fit-quality gate (fit-window RMSE vs. the treated unit's own volatility) runs before any verdict is trusted: above 1.0x, the report leads with a hard \"do not trust this gap\" warning instead of a confident-looking chart."
+    ],
+    finding:'<b>Also notable:</b> the GOOGL capex-guidance case study found the sell-off was a shared hyperscaler re-pricing move, not a GOOGL-specific punishment — MSFT\'s placebo gap was actually larger.',
+    link:'causal-toolkit/index.html', linkText:'Browse case studies'
+  },
+  'factor-decomposition': {
+    badge:'3-factor OLS', badgeClass:'badge-research',
+    body:[
+      "For each holding, daily log returns are regressed against three factors — Market (SPY), Sector-excess, and Rate-excess (TLT) — orthogonalized in sequence so each beta is a clean incremental sensitivity rather than one confounded by collinearity with the others.",
+      "R² is treated as a reliability gate, not a headline number: a low R² isn't a tool failure, it's itself the finding for a name that trades on its own news rather than macro factors."
+    ],
+    finding:'<b>Additivity:</b> working in log returns throughout makes the split exactly additive — actual return = market + sector + rate + idiosyncratic remainder, no compounding cross-terms to reconcile.',
+    link:'factor-decomposition/index.html', linkText:'Browse holdings'
+  },
+  'fred-nowcast': {
+    badge:'Bridge-equation OLS', badgeClass:'badge-research',
+    body:[
+      "A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of what GDP is doing right now, rather than the quarter-old official print."
+    ],
+    link:'fred-nowcast/index.html', linkText:'See the current estimate'
+  },
+  'gpt-from-scratch': {
+    badge:'Phase 1 done', badgeClass:'badge-progress',
+    body:[
+      "A small GPT-style decoder-only transformer, implemented from first principles in PyTorch — no nn.Transformer, no pretrained weights. The goal isn't a strong model; it's understanding every piece of the architecture underneath the LLM-based tools used daily, rather than only calling one through an API.",
+      "Built by hand: a character-level tokenizer, learned token + positional embeddings, causal multi-head self-attention with a lower-triangular mask, a pre-norm residual transformer block, and autoregressive sampling with temperature/top-k."
+    ],
+    finding:'<b>Status:</b> Phase 1 (character-level, tiny-Shakespeare corpus) closed at val loss 1.6164. Phase 2 — BPE tokenization — is next.'
+  },
+  'ai-security': {
+    badge:'Phase 1 built', badgeClass:'badge-progress',
+    body:[
+      "Applies real AI-security practice to the custom Claude Code subagents already in use elsewhere on this machine, rather than treating \"AI security\" as an abstract topic. A prompt-injection red-team harness sends a corpus of injection/jailbreak payloads to a target agent's actual, verbatim system prompt and checks whether the response indicates it complied or held the line.",
+      "First target: the subagent with live trade-execution access plus routine ingestion of untrusted web content — exactly the profile that makes prompt injection a genuine risk rather than a hypothetical one. Every payload targets a specific, named rule from that agent's own system prompt."
+    ],
+    finding:'<b>First run:</b> 18/18 manual checks passed, and the process separately surfaced a real negation-blindness bug in an unrelated classifier.'
+  }
+};
+
+const backdrop = document.getElementById('modalBackdrop');
+const modalTitle = document.getElementById('modalTitle');
+const modalBadge = document.getElementById('modalBadge');
+const modalBody = document.getElementById('modalBody');
+const modalLink = document.getElementById('modalLink');
+
+function openModal(key){
+  const p = PROJECTS[key];
+  if(!p) return;
+  const titleText = document.querySelector(`[data-project="${key}"] .card-title`).textContent;
+  modalTitle.textContent = titleText;
+  modalBadge.textContent = p.badge;
+  modalBadge.className = 'card-badge ' + p.badgeClass;
+  modalBody.innerHTML = p.body.map(t=>`<p>${t}</p>`).join('') + (p.finding ? `<div class="modal-finding">${p.finding}</div>` : '');
+  if(p.link){
+    modalLink.style.display = 'inline-flex';
+    modalLink.href = p.link;
+    modalLink.textContent = p.linkText + ' →';
+  } else {
+    modalLink.style.display = 'none';
+  }
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-project]').forEach(el=>{
+  el.addEventListener('click', ()=>openModal(el.dataset.project));
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+backdrop.addEventListener('click', e=>{ if(e.target === backdrop) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
