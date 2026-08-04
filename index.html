@@ -43,30 +43,32 @@ body{
 }
 .section-label .num{font-family:'Consolas','Courier New',monospace;color:var(--accent);font-size:13px;letter-spacing:0}
 
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}
-@media(max-width:640px){.cards{grid-template-columns:1fr}}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}
 
-.card{
-  background:var(--card);border:1px solid var(--border);border-radius:4px;
-  padding:20px 22px;display:flex;flex-direction:column;gap:10px;
-  text-decoration:none;color:inherit;transition:border-color .15s,background .15s;
+.tile{
+  background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:20px 18px 18px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+  cursor:pointer;transition:border-color .15s,background .15s,transform .15s;position:relative;
 }
-.card:hover{border-color:var(--accent);background:var(--bg2)}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.card-title{font-size:19px;font-weight:700;color:var(--text);letter-spacing:.1px;font-family:'Iowan Old Style','Georgia','Charter',serif}
-.card-badge{font-family:'Consolas','Courier New',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:3px;white-space:nowrap}
+.tile:hover{border-color:var(--accent);background:var(--bg2);transform:translateY(-2px)}
+.tile:hover .tile-plus{border-color:var(--accent);color:var(--accent)}
+.tile-mark{
+  width:42px;height:42px;border-radius:7px;background:var(--dim);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Consolas','Courier New',monospace;font-weight:800;font-size:13px;color:var(--accent);letter-spacing:.3px;
+}
+.tile-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:.1px;font-family:'Iowan Old Style','Georgia','Charter',serif;line-height:1.25}
+.tile-hook{font-size:12px;color:var(--muted);line-height:1.5}
+.tile-badge{font-family:'Consolas','Courier New',monospace;font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap}
 .badge-live{background:var(--green);color:#0c0d10;border:1px solid var(--green)}
 .badge-research{background:var(--accent);color:#0c0d10;border:1px solid var(--accent)}
 .badge-progress{background:none;color:var(--muted);border:1px solid var(--border)}
-.card.no-link{cursor:default}
-.card.no-link:hover{border-color:var(--border);background:var(--card)}
-.card-desc{font-size:13px;color:var(--muted);line-height:1.7}
-.card-finding{font-size:12.5px;color:var(--text);line-height:1.6;background:var(--dim);border-left:2px solid var(--accent2);padding:9px 11px;border-radius:3px;margin-top:2px}
-.card-finding b{color:var(--accent2)}
-.card-link{font-family:'Consolas','Courier New',monospace;font-size:11px;color:var(--accent);letter-spacing:.5px;margin-top:auto;padding-top:6px;font-weight:700}
-.card-link::after{content:" →"}
+.tile-plus{
+  position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;justify-content:center;
+  font-size:13px;line-height:1;transition:border-color .15s,color .15s;
+}
 
-.wide-card{grid-column:1/-1}
 .sub-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}
 .sub-link{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:3px;padding:5px 10px;text-decoration:none;transition:color .15s,border-color .15s}
 .sub-link:hover{color:var(--accent);border-color:var(--accent)}
@@ -75,8 +77,8 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);font-
 footer a{color:var(--muted)}
 footer a:hover{color:var(--accent)}
 
-button.card{all:unset;box-sizing:border-box;cursor:pointer;width:100%}
-button.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.tile{all:unset;box-sizing:border-box;cursor:pointer;width:100%}
+button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .modal-backdrop{
   position:fixed;inset:0;background:rgba(6,7,9,.72);backdrop-filter:blur(3px);
@@ -127,46 +129,40 @@ button.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   <div class="section-label"><span class="num">01</span> Live</div>
   <div class="cards">
-    <button class="card wide-card" type="button" data-project="signal-log">
-      <div class="card-top">
-        <div class="card-title">YR Signal — public trade log</div>
-        <div class="card-badge badge-live">Live · updated as trades happen</div>
-      </div>
-      <div class="card-desc">A running log of real trades and the reasoning behind them (buy/sell/trim, thesis, conviction level), plus an Econ Briefing tab tracking rates/inflation/jobs and a hand-built market-regime classifier backtested to 1999.</div>
-      <div class="card-link">Open the log</div>
+    <button class="tile" type="button" data-project="signal-log">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">YR</div>
+      <div class="tile-title">YR Signal</div>
+      <div class="tile-hook">Public trade log, updated as trades happen</div>
+      <div class="tile-badge badge-live">Live</div>
     </button>
   </div>
 
   <div class="section-label"><span class="num">02</span> Research instruments</div>
   <div class="cards">
 
-    <button class="card" type="button" data-project="causal-toolkit">
-      <div class="card-top">
-        <div class="card-title">Causal Toolkit</div>
-        <div class="card-badge badge-research">Synthetic control</div>
-      </div>
-      <div class="card-desc">Did an event actually cause a stock to break from its peers, or is the "effect" just a pre-existing trend? Abadie-Diamond-Hainmueller synthetic control with a fit-quality gate that refuses to hand you a number it doesn't trust.</div>
-      <div class="card-finding"><b>Notable result:</b> BE's post-short-seller-report decline ranks <i>last</i> of its peer group in the placebo test — the honest read is "not a clear break," not the dramatic story a reader might expect.</div>
-      <div class="card-link">Browse case studies</div>
+    <button class="tile" type="button" data-project="causal-toolkit">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">CT</div>
+      <div class="tile-title">Causal Toolkit</div>
+      <div class="tile-hook">Did the event actually cause it?</div>
+      <div class="tile-badge badge-research">Synthetic control</div>
     </button>
 
-    <button class="card" type="button" data-project="factor-decomposition">
-      <div class="card-top">
-        <div class="card-title">Factor Decomposition</div>
-        <div class="card-badge badge-research">3-factor OLS</div>
-      </div>
-      <div class="card-desc">For each holding: how much of its return rode Market, Sector, or Rates — versus being genuinely stock-specific? Factors orthogonalized in sequence so betas are clean, not confounded. R&sup2; gated up front, not glossed over on low-confidence names.</div>
-      <div class="card-finding"><b>Method note:</b> log returns throughout make the split exactly additive — no compounding cross-terms to hand-wave away.</div>
-      <div class="card-link">Browse holdings</div>
+    <button class="tile" type="button" data-project="factor-decomposition">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">FD</div>
+      <div class="tile-title">Factor Decomposition</div>
+      <div class="tile-hook">Market, sector, rates, or you</div>
+      <div class="tile-badge badge-research">3-factor OLS</div>
     </button>
 
-    <button class="card wide-card" type="button" data-project="fred-nowcast">
-      <div class="card-top">
-        <div class="card-title">FRED Nowcast</div>
-        <div class="card-badge badge-research">Bridge-equation OLS</div>
-      </div>
-      <div class="card-desc">A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of "right now," not the quarter-old official print.</div>
-      <div class="card-link">See the current estimate</div>
+    <button class="tile" type="button" data-project="fred-nowcast">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">FN</div>
+      <div class="tile-title">FRED Nowcast</div>
+      <div class="tile-hook">GDP, estimated right now</div>
+      <div class="tile-badge badge-research">Bridge OLS</div>
     </button>
 
   </div>
@@ -174,22 +170,20 @@ button.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="section-label"><span class="num">03</span> In progress</div>
   <div class="cards">
 
-    <button class="card" type="button" data-project="gpt-from-scratch">
-      <div class="card-top">
-        <div class="card-title">GPT From Scratch</div>
-        <div class="card-badge badge-progress">Phase 1 done</div>
-      </div>
-      <div class="card-desc">A decoder-only transformer built from first principles in PyTorch — no <code>nn.Transformer</code>, no pretrained weights. Hand-built tokenizer, causal self-attention, positional embeddings, autoregressive sampling. The point is understanding what's actually underneath the LLM tools I use daily, not just calling one through an API.</div>
-      <div class="card-finding"><b>Status:</b> Phase 1 (character-level, tiny-Shakespeare) closed — best config hit val loss 1.6164. Phase 2 (BPE tokenization) is next.</div>
+    <button class="tile" type="button" data-project="gpt-from-scratch">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">GPT</div>
+      <div class="tile-title">GPT From Scratch</div>
+      <div class="tile-hook">A transformer, built by hand</div>
+      <div class="tile-badge badge-progress">Phase 1 done</div>
     </button>
 
-    <button class="card" type="button" data-project="ai-security">
-      <div class="card-top">
-        <div class="card-title">AI Security</div>
-        <div class="card-badge badge-progress">Phase 1 built</div>
-      </div>
-      <div class="card-desc">Red-teaming and a NIST AI RMF self-audit applied to my own Claude Code subagents, not treated as an abstract topic — a prompt-injection harness that sends real jailbreak/injection payloads against a target agent's actual, verbatim system prompt and checks whether it held the line.</div>
-      <div class="card-finding"><b>First target:</b> the subagent with live trade-execution access. First manual audit run: 18/18 checks passed, and it surfaced a real negation-blindness bug in a separate classifier.</div>
+    <button class="tile" type="button" data-project="ai-security">
+      <div class="tile-plus">+</div>
+      <div class="tile-mark">AI</div>
+      <div class="tile-title">AI Security</div>
+      <div class="tile-hook">Red-teaming my own agents</div>
+      <div class="tile-badge badge-progress">Phase 1 built</div>
     </button>
 
   </div>
@@ -211,7 +205,7 @@ button.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <button class="modal-close" id="modalClose" aria-label="Close">&#10005;</button>
     <div class="modal-top">
       <div class="modal-title" id="modalTitle"></div>
-      <div class="card-badge" id="modalBadge"></div>
+      <div class="tile-badge" id="modalBadge" style="font-size:10px;padding:4px 9px"></div>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <a class="modal-link" id="modalLink" target="_blank" rel="noopener"></a>
@@ -281,10 +275,11 @@ const modalLink = document.getElementById('modalLink');
 function openModal(key){
   const p = PROJECTS[key];
   if(!p) return;
-  const titleText = document.querySelector(`[data-project="${key}"] .card-title`).textContent;
+  const titleText = document.querySelector(`[data-project="${key}"] .tile-title`).textContent;
   modalTitle.textContent = titleText;
   modalBadge.textContent = p.badge;
-  modalBadge.className = 'card-badge ' + p.badgeClass;
+  modalBadge.className = 'tile-badge ' + p.badgeClass;
+  modalBadge.style.cssText = 'font-size:10px;padding:4px 9px';
   modalBody.innerHTML = p.body.map(t=>`<p>${t}</p>`).join('') + (p.finding ? `<div class="modal-finding">${p.finding}</div>` : '');
   if(p.link){
     modalLink.style.display = 'inline-flex';
