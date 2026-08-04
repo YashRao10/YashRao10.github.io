@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YR — Projects</title>
 <meta name="description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
+<link rel="canonical" href="https://yashrao10.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230c0d10'/%3E%3Ctext x='50' y='68' font-family='Consolas,monospace' font-size='44' font-weight='800' fill='%23e8a33d' text-anchor='middle'%3EYR%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0c0d10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YR — Projects">
+<meta property="og:description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
+<meta property="og:url" content="https://yashrao10.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="YR — Projects">
+<meta name="twitter:description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
 <style>
 :root{
   --bg:#0c0d10;--bg2:#131519;--card:#16181d;--border:#282b32;
@@ -129,8 +139,8 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   <div class="section-label"><span class="num">01</span> Live</div>
   <div class="cards">
-    <button class="tile" type="button" data-project="signal-log">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="signal-log" aria-label="View details: YR Signal">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">YR</div>
       <div class="tile-title">YR Signal</div>
       <div class="tile-hook">Public trade log, updated as trades happen</div>
@@ -141,24 +151,24 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="section-label"><span class="num">02</span> Research instruments</div>
   <div class="cards">
 
-    <button class="tile" type="button" data-project="causal-toolkit">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="causal-toolkit" aria-label="View details: Causal Toolkit">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">CT</div>
       <div class="tile-title">Causal Toolkit</div>
       <div class="tile-hook">Did the event actually cause it?</div>
       <div class="tile-badge badge-research">Synthetic control</div>
     </button>
 
-    <button class="tile" type="button" data-project="factor-decomposition">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="factor-decomposition" aria-label="View details: Factor Decomposition">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">FD</div>
       <div class="tile-title">Factor Decomposition</div>
       <div class="tile-hook">Market, sector, rates, or you</div>
       <div class="tile-badge badge-research">3-factor OLS</div>
     </button>
 
-    <button class="tile" type="button" data-project="fred-nowcast">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="fred-nowcast" aria-label="View details: FRED Nowcast">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">FN</div>
       <div class="tile-title">FRED Nowcast</div>
       <div class="tile-hook">GDP, estimated right now</div>
@@ -170,16 +180,16 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="section-label"><span class="num">03</span> In progress</div>
   <div class="cards">
 
-    <button class="tile" type="button" data-project="gpt-from-scratch">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="gpt-from-scratch" aria-label="View details: GPT From Scratch">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">GPT</div>
       <div class="tile-title">GPT From Scratch</div>
       <div class="tile-hook">A transformer, built by hand</div>
       <div class="tile-badge badge-progress">Phase 1 done</div>
     </button>
 
-    <button class="tile" type="button" data-project="ai-security">
-      <div class="tile-plus">+</div>
+    <button class="tile" type="button" data-project="ai-security" aria-label="View details: AI Security">
+      <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">AI</div>
       <div class="tile-title">AI Security</div>
       <div class="tile-hook">Red-teaming my own agents</div>
@@ -267,14 +277,18 @@ const PROJECTS = {
 };
 
 const backdrop = document.getElementById('modalBackdrop');
+const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modalTitle');
 const modalBadge = document.getElementById('modalBadge');
 const modalBody = document.getElementById('modalBody');
 const modalLink = document.getElementById('modalLink');
+const modalClose = document.getElementById('modalClose');
+let lastTrigger = null;
 
-function openModal(key){
+function openModal(key, trigger){
   const p = PROJECTS[key];
   if(!p) return;
+  lastTrigger = trigger || document.activeElement;
   const titleText = document.querySelector(`[data-project="${key}"] .tile-title`).textContent;
   modalTitle.textContent = titleText;
   modalBadge.textContent = p.badge;
@@ -290,18 +304,33 @@ function openModal(key){
   }
   backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
+  modalClose.focus();
 }
 function closeModal(){
   backdrop.classList.remove('open');
   document.body.style.overflow = '';
+  if(lastTrigger) lastTrigger.focus();
+}
+function focusableInModal(){
+  return Array.from(modal.querySelectorAll('button, a[href]')).filter(el=>el.offsetParent !== null);
 }
 
 document.querySelectorAll('[data-project]').forEach(el=>{
-  el.addEventListener('click', ()=>openModal(el.dataset.project));
+  el.addEventListener('click', ()=>openModal(el.dataset.project, el));
 });
-document.getElementById('modalClose').addEventListener('click', closeModal);
+modalClose.addEventListener('click', closeModal);
 backdrop.addEventListener('click', e=>{ if(e.target === backdrop) closeModal(); });
-document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e=>{
+  if(!backdrop.classList.contains('open')) return;
+  if(e.key === 'Escape'){ closeModal(); return; }
+  if(e.key === 'Tab'){
+    const f = focusableInModal();
+    if(f.length === 0) return;
+    const first = f[0], last = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
 </script>
 </body>
 </html>
