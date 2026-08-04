@@ -1,0 +1,34 @@
+name: Update ticker tape
+
+on:
+  schedule:
+    # Every 30 min, roughly market hours (9:30am-4pm ET) on weekdays.
+    # Cron is UTC; 13:00-21:00 UTC covers ET regardless of DST with slack
+    # on both ends rather than trying to track the DST shift exactly.
+    - cron: "0,30 13-20 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-ticker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install yfinance
+
+      - run: python scripts/fetch_ticker.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ticker.json
+          git diff --cached --quiet || git commit -m "Update ticker tape data [skip ci]"
+          git push

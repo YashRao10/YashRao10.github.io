@@ -18,7 +18,7 @@
 <style>
 :root{
   --bg:#0c0d10;--bg2:#131519;--card:#16181d;--border:#282b32;
-  --accent:#e8a33d;--accent2:#4fb8a6;--green:#4fb8a6;--yellow:#e8a33d;
+  --accent:#e8a33d;--accent2:#4fb8a6;--green:#4fb8a6;--yellow:#e8a33d;--red:#c9645f;
   --text:#f2f0ea;--muted:#8b8d94;--dim:#1c1e24;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -40,6 +40,20 @@ body{
 .bg-chart-line{opacity:.3;filter:drop-shadow(0 0 10px rgba(79,184,166,.18))}
 .bg-circuit{stroke:var(--accent);stroke-width:1.5;fill:none;opacity:.24}
 .bg-circuit circle{fill:var(--accent)}
+
+.ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
+.ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
+.ticker-viewport{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.ticker-track{display:inline-flex;align-items:center;will-change:transform;animation:ticker-scroll 45s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:7px;font-family:'Consolas','Courier New',monospace;font-size:11.5px;padding:9px 18px;white-space:nowrap}
+.ticker-sym{color:var(--text);font-weight:700;letter-spacing:.3px}
+.ticker-price{color:var(--muted)}
+.ticker-chg{font-weight:700}
+.ticker-up{color:var(--green)}
+.ticker-down{color:var(--red)}
+.ticker-loading{font-family:'Consolas','Courier New',monospace;font-size:11px;color:var(--muted);letter-spacing:.5px;padding:9px 18px;white-space:nowrap}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-viewport{overflow-x:auto}}
 
 .hero{margin-bottom:40px}
 .hero-eyebrow{font-family:'Consolas','Courier New',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:22px}
@@ -135,6 +149,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
+<div class="ticker-tape" role="marquee" aria-label="Sector and market tracker, auto-updated every 30 minutes">
+  <span class="ticker-badge">AUTO &middot; 30MIN</span>
+  <div class="ticker-viewport">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-loading">Loading market data&hellip;</span>
+    </div>
+  </div>
+</div>
 <svg class="bg-decor" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <defs>
     <linearGradient id="chartFade" x1="0" y1="0" x2="0" y2="1">
@@ -440,6 +462,33 @@ document.addEventListener('keydown', e=>{
     else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
   }
 });
+
+(function loadTicker(){
+  const track = document.getElementById('tickerTrack');
+  fetch('data/ticker.json', {cache:'no-store'})
+    .then(r => { if(!r.ok) throw new Error('no ticker data yet'); return r.json(); })
+    .then(data => {
+      const quotes = data.quotes || [];
+      if(quotes.length === 0) throw new Error('empty ticker data');
+      const itemHTML = quotes.map(q => {
+        const up = q.change_pct >= 0;
+        const arrow = up ? '&#9650;' : '&#9660;';
+        const sign = up ? '+' : '';
+        return `<span class="ticker-item">
+          <span class="ticker-sym">${q.symbol}</span>
+          <span class="ticker-price">${q.price.toFixed(2)}</span>
+          <span class="ticker-chg ${up ? 'ticker-up' : 'ticker-down'}">${arrow} ${sign}${q.change_pct.toFixed(2)}%</span>
+        </span>`;
+      }).join('');
+      // duplicated once for a seamless -50% loop
+      track.innerHTML = itemHTML + itemHTML;
+      track.style.animationDuration = Math.max(24, quotes.length * 3) + 's';
+    })
+    .catch(() => {
+      track.innerHTML = '<span class="ticker-loading">Ticker data not published yet &mdash; first sync runs once this is live on GitHub Pages.</span>';
+      track.style.animation = 'none';
+    });
+})();
 </script>
 </body>
 </html>
