@@ -222,7 +222,28 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     </button>
   </div>
 
-  <div class="section-label"><span class="num">02</span> Research instruments</div>
+  <div class="section-label"><span class="num">02</span> Milestones</div>
+  <div class="cards">
+
+    <button class="tile" type="button" data-project="background" aria-label="View details: Background">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">ED</div>
+      <div class="tile-title">TIM + Econ</div>
+      <div class="tile-hook">Bridging both fields, on purpose</div>
+      <div class="tile-badge badge-progress">Background</div>
+    </button>
+
+    <button class="tile" type="button" data-project="highlights" aria-label="View details: Highlights">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">&#9733;</div>
+      <div class="tile-title">Highlights</div>
+      <div class="tile-hook">The real numbers behind the work above</div>
+      <div class="tile-badge badge-live">6 results</div>
+    </button>
+
+  </div>
+
+  <div class="section-label"><span class="num">03</span> Research instruments</div>
   <div class="cards">
 
     <button class="tile" type="button" data-project="regime-classifier" aria-label="View details: Regime Classifier">
@@ -259,7 +280,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   </div>
 
-  <div class="section-label"><span class="num">03</span> Tooling</div>
+  <div class="section-label"><span class="num">04</span> Tooling</div>
   <div class="cards">
 
     <button class="tile" type="button" data-project="agent-tooling" aria-label="View details: Agent Tooling">
@@ -272,7 +293,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   </div>
 
-  <div class="section-label"><span class="num">04</span> In progress</div>
+  <div class="section-label"><span class="num">05</span> In progress</div>
   <div class="cards">
 
     <button class="tile" type="button" data-project="gpt-from-scratch" aria-label="View details: GPT From Scratch">
@@ -301,7 +322,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   </div>
 
-  <div class="section-label"><span class="num">05</span> Notes</div>
+  <div class="section-label"><span class="num">06</span> Notes</div>
   <div class="cards">
     <button class="tile" type="button" data-project="disclosure" aria-label="View details: No Dollar Amounts">
       <div class="tile-plus" aria-hidden="true">+</div>
@@ -312,7 +333,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     </button>
   </div>
 
-  <div class="section-label"><span class="num">06</span> Elsewhere</div>
+  <div class="section-label"><span class="num">07</span> Elsewhere</div>
   <div class="sub-links">
     <a class="sub-link" href="https://github.com/YashRao10" target="_blank" rel="noopener">GitHub</a>
     <a class="sub-link" href="https://www.linkedin.com/in/yash-r-84866a171/" target="_blank" rel="noopener">LinkedIn</a>
@@ -345,6 +366,19 @@ const PROJECTS = {
     ],
     finding:'<b>Style:</b> mostly long-term positioning around AI infrastructure plus sector-diversification adds — not day-trading, not options.',
     link:'https://yashrao10.github.io/signal-log/', linkText:'Open the log'
+  },
+  'background': {
+    badge:'Background', badgeClass:'badge-progress',
+    body:[
+      "TIM (Technology & Information Management) major, Economics minor — a deliberate pairing, not two unrelated tracks. Everything on this page is what that combination looks like applied: build the tool, don't just read about the market it's built for."
+    ]
+  },
+  'highlights': {
+    badge:'6 results', badgeClass:'badge-live',
+    body:[
+      "The concrete outcomes behind the tiles above, in one place:"
+    ],
+    finding:'<b>GPT From Scratch:</b> Phase 1 closed at val loss 1.6164, character-level, zero pretrained weights.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real, still-unfixed sector/rate attribution bug in its own production output.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
