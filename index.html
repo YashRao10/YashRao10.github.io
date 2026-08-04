@@ -201,6 +201,42 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <text class="code-line code-str"  x="1282" y="244">"Neutral / Hold",</text>
     <text class="code-line code-com"  x="1270" y="266">]  # rule-based since 1999</text>
   </g>
+
+  <!-- third window, top-left: real lines from factor-decomposition/
+       factor_model.py -- the "stocks" side of the page -->
+  <g class="bg-code" id="codeCluster3">
+    <rect class="code-window" x="30" y="70" width="320" height="210" rx="10"/>
+    <line class="code-titlebar" x1="30" y1="106" x2="350" y2="106"/>
+    <circle class="code-dot code-dot-r" cx="52" cy="88" r="5"/>
+    <circle class="code-dot code-dot-y" cx="70" cy="88" r="5"/>
+    <circle class="code-dot code-dot-g" cx="88" cy="88" r="5"/>
+    <text class="code-line code-kw"    x="50" y="134">def fit_betas(stock_ret,</text>
+    <text class="code-line code-kw"    x="62" y="156">factors):</text>
+    <text class="code-line code-str"   x="62" y="178">keys = ("market","sector","rate")</text>
+    <text class="code-line code-fn"    x="62" y="200">coef, *_ = np.linalg.lstsq(X, y)</text>
+    <text class="code-line code-plain" x="62" y="222">resid = y - fitted</text>
+    <text class="code-line code-str"   x="62" y="244">r_squared = 1.0 - ss_res/ss_tot</text>
+    <text class="code-line code-com"   x="50" y="266"># low R&#178; = noisy betas, not a bug</text>
+  </g>
+
+  <!-- fourth window, bottom-right: real, generic (non-client-specific)
+       DO-178C build/coverage commands -- ties the consulting tile in
+       without naming any client or project, matching that tile's own
+       confidentiality rule -->
+  <g class="bg-code" id="codeCluster4">
+    <rect class="code-window" x="1250" y="600" width="320" height="210" rx="10"/>
+    <line class="code-titlebar" x1="1250" y1="636" x2="1570" y2="636"/>
+    <circle class="code-dot code-dot-r" cx="1272" cy="618" r="5"/>
+    <circle class="code-dot code-dot-y" cx="1290" cy="618" r="5"/>
+    <circle class="code-dot code-dot-g" cx="1308" cy="618" r="5"/>
+    <text class="code-line code-kw"    x="1270" y="664">gcc --coverage -c x.c -o x.o</text>
+    <text class="code-line code-kw"    x="1270" y="686">gcc --coverage x.o test_x.o</text>
+    <text class="code-line code-fn"    x="1270" y="708">gcov -b x.c</text>
+    <text class="code-line code-com"   x="1270" y="730"># line + branch, then MC/DC gap</text>
+    <text class="code-line code-str"   x="1270" y="752">MSYS_NO_PATHCONV=1 wsl bash -c</text>
+    <text class="code-line code-fn"    x="1270" y="774">gcc -std=c99 -Wall -Wextra ...</text>
+    <text class="code-line code-com"   x="1270" y="796"># DAL scales rigor, not mechanics</text>
+  </g>
 </svg>
 <div class="wrap">
 
