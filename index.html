@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Rao — TIM &amp; Economics, applied</title>
+<meta name="description" content="Applied projects at the intersection of Technology, Information Management and Economics — a live trade log, causal-inference case studies, factor decomposition, and a GDP nowcast.">
+<style>
+:root{
+  --bg:#070b12;--card:#0d1420;--border:#1e2a3d;
+  --accent:#38bdf8;--accent2:#818cf8;--green:#10b981;--yellow:#fbbf24;
+  --text:#eef3fb;--muted:#7d8ba3;--dim:#111a29;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--text);min-height:100vh;
+  font-family:'Consolas','Courier New',monospace;font-weight:400;
+  overflow-x:hidden;
+}
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite;animation-delay:var(--delay);opacity:var(--o)}
+@keyframes twinkle{0%,100%{opacity:var(--o)}50%{opacity:.05}}
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:48px 20px 60px}
+
+.hero{margin-bottom:44px}
+.hero-eyebrow{font-size:11.5px;letter-spacing:2.5px;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:.5px;line-height:1.35;margin-bottom:16px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:14px;color:var(--muted);line-height:1.8;max-width:680px}
+.hero p strong{color:var(--text)}
+
+.section-label{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:9px;
+  text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;
+}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card-title{font-size:15px;font-weight:800;color:var(--text);letter-spacing:.3px}
+.card-badge{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap}
+.badge-live{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.badge-research{background:rgba(129,140,248,.12);color:var(--accent2);border:1px solid rgba(129,140,248,.3)}
+.card-desc{font-size:12.5px;color:var(--muted);line-height:1.65}
+.card-finding{font-size:12px;color:var(--text);line-height:1.6;background:var(--dim);border-left:2px solid var(--accent);padding:8px 10px;border-radius:4px;margin-top:2px}
+.card-finding b{color:var(--accent)}
+.card-link{font-size:11.5px;color:var(--accent);letter-spacing:.5px;margin-top:auto;padding-top:4px;font-weight:700}
+.card-link::after{content:" →"}
+
+.wide-card{grid-column:1/-1}
+.sub-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.sub-link{font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:4px 9px;text-decoration:none;transition:color .15s,border-color .15s}
+.sub-link:hover{color:var(--accent);border-color:var(--accent)}
+
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);letter-spacing:.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Yash Rao &middot; TIM + Economics</div>
+    <h1>Applied projects at the seam between <span>markets</span> and <span>systems</span>.</h1>
+    <p>I study Technology &amp; Information Management and Economics, and I'd rather build the instrument than just read about it. Everything below is a real, working tool run on real (or real-adjacent) data — a live trade log, honest-negative-results-included causal inference, return attribution, and a macro nowcast. No dollar amounts or position sizes are ever posted; the point is the reasoning and the method, not the account size.</p>
+  </div>
+
+  <div class="section-label">Live</div>
+  <div class="cards">
+    <a class="card wide-card" href="https://yashrao10.github.io/signal-log/" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="card-title">YR Signal — public trade log</div>
+        <div class="card-badge badge-live">Live · updated as trades happen</div>
+      </div>
+      <div class="card-desc">A running log of real trades and the reasoning behind them (buy/sell/trim, thesis, conviction level), plus an Econ Briefing tab tracking rates/inflation/jobs and a hand-built market-regime classifier backtested to 1999.</div>
+      <div class="card-link">Open the log</div>
+    </a>
+  </div>
+
+  <div class="section-label">Research instruments</div>
+  <div class="cards">
+
+    <a class="card" href="causal-toolkit/index.html">
+      <div class="card-top">
+        <div class="card-title">Causal Toolkit</div>
+        <div class="card-badge badge-research">Synthetic control</div>
+      </div>
+      <div class="card-desc">Did an event actually cause a stock to break from its peers, or is the "effect" just a pre-existing trend? Abadie-Diamond-Hainmueller synthetic control with a fit-quality gate that refuses to hand you a number it doesn't trust.</div>
+      <div class="card-finding"><b>Notable result:</b> BE's post-short-seller-report decline ranks <i>last</i> of its peer group in the placebo test — the honest read is "not a clear break," not the dramatic story a reader might expect.</div>
+      <div class="card-link">Browse case studies</div>
+    </a>
+
+    <a class="card" href="factor-decomposition/index.html">
+      <div class="card-top">
+        <div class="card-title">Factor Decomposition</div>
+        <div class="card-badge badge-research">3-factor OLS</div>
+      </div>
+      <div class="card-desc">For each holding: how much of its return rode Market, Sector, or Rates — versus being genuinely stock-specific? Factors orthogonalized in sequence so betas are clean, not confounded. R&sup2; gated up front, not glossed over on low-confidence names.</div>
+      <div class="card-finding"><b>Method note:</b> log returns throughout make the split exactly additive — no compounding cross-terms to hand-wave away.</div>
+      <div class="card-link">Browse holdings</div>
+    </a>
+
+    <a class="card wide-card" href="fred-nowcast/index.html">
+      <div class="card-top">
+        <div class="card-title">FRED Nowcast</div>
+        <div class="card-badge badge-research">Bridge-equation OLS</div>
+      </div>
+      <div class="card-desc">A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of "right now," not the quarter-old official print.</div>
+      <div class="card-link">See the current estimate</div>
+    </a>
+
+  </div>
+
+  <div class="section-label">Elsewhere</div>
+  <div class="sub-links">
+    <a class="sub-link" href="https://github.com/YashRao10" target="_blank" rel="noopener">GitHub</a>
+    <a class="sub-link" href="https://www.linkedin.com/in/yash-r-84866a171/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+
+  <footer>
+    <span>YASH RAO &middot; TIM + ECONOMICS</span>
+    <span>All figures here are public market data or public-safe research output — never dollar amounts or position sizes.</span>
+  </footer>
+</div>
+
+<script>
+const starsEl = document.getElementById('stars');
+for(let i=0;i<140;i++){
+  const s=document.createElement('div');s.className='star';
+  const sz=Math.random()*2+.4;
+  s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*5}s;--o:${.15+Math.random()*.7};--delay:-${Math.random()*6}s`;
+  starsEl.appendChild(s);
+}
+</script>
+</body>
+</html>
