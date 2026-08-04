@@ -130,11 +130,9 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 <div class="wrap">
 
   <div class="hero">
-    <div class="hero-eyebrow">YR &middot; Career Path &amp; Goals</div>
-    <h1>Building toward work at the seam between <span>markets</span> and applied <span>engineering</span>.</h1>
+    <div class="hero-eyebrow">YR &middot; Projects</div>
+    <h1>Markets <span>&times;</span> applied engineering.</h1>
     <div class="hero-rule"></div>
-    <p>I'd rather build the instrument than just read about it. This page tracks that, honestly — live tools, finished projects, and the ones still in progress, not just the polished-and-done ones. A live trade log, causal inference that reports its own negative results, return attribution, a macro nowcast, a transformer built from scratch, and a red-team harness pointed at my own agents. No dollar amounts or position sizes are ever posted; the point is the reasoning and the method, not the account size.</p>
-    <p class="hero-note">Also currently doing DO-178C tool-qualification consulting for an aerospace-compliance vendor — building demo projects that show full requirements-to-test traceability end to end. Client and project details aren't public; the work below is what is.</p>
   </div>
 
   <div class="section-label"><span class="num">01</span> Live</div>
@@ -194,6 +192,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-title">AI Security</div>
       <div class="tile-hook">Red-teaming my own agents</div>
       <div class="tile-badge badge-progress">Phase 1 built</div>
+    </button>
+
+    <button class="tile" type="button" data-project="consulting" aria-label="View details: DO-178C Consulting">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">DO</div>
+      <div class="tile-title">DO-178C Tool Qual</div>
+      <div class="tile-hook">Aerospace-compliance consulting</div>
+      <div class="tile-badge badge-progress">Confidential</div>
     </button>
 
   </div>
@@ -273,6 +279,13 @@ const PROJECTS = {
       "First target: the subagent with live trade-execution access plus routine ingestion of untrusted web content — exactly the profile that makes prompt injection a genuine risk rather than a hypothetical one. Every payload targets a specific, named rule from that agent's own system prompt."
     ],
     finding:'<b>First run:</b> 18/18 manual checks passed, and the process separately surfaced a real negation-blindness bug in an unrelated classifier.'
+  },
+  'consulting': {
+    badge:'Confidential', badgeClass:'badge-progress',
+    body:[
+      "Tool-qualification consulting for an aerospace-compliance vendor — building demo projects that show full requirements-to-test traceability end to end, DO-178C style.",
+      "Client and project details aren't public. This tile exists so the work is acknowledged without disclosing anything about it."
+    ]
   }
 };
 
