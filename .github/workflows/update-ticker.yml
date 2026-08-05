@@ -32,3 +32,4 @@ jobs:
           git add data/ticker.json
           git diff --cached --quiet || git commit -m "Update ticker tape data [skip ci]"
           git push
+# registered on go-live
