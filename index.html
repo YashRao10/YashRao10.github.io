@@ -37,6 +37,14 @@ body{
 .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:72px 24px 64px}
 
 .bg-decor{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+@media(max-width:900px){
+  /* The code windows/trade cards use fixed-pixel margins tuned for a wide
+     desktop canvas, and preserveAspectRatio="slice" would zoom/crop them
+     badly on a narrow, tall phone viewport -- hide the whole decorative
+     layer below tablet width rather than try to make five absolutely-
+     positioned corner elements responsive. */
+  .bg-decor{display:none}
+}
 .bg-code{opacity:.4}
 .code-window{fill:var(--bg2);stroke:var(--border);stroke-width:1.5}
 .code-titlebar{stroke:var(--border);stroke-width:1.5}
