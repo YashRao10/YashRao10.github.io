@@ -64,14 +64,11 @@ body{
 .log-card-accent{fill:var(--accent2)}
 .log-badge{font-family:'Consolas','Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:.5px}
 .log-badge-buy{fill:var(--accent2)}
-.log-badge-trim{fill:var(--accent)}
 .log-badge-conv{fill:var(--muted)}
-.log-card-accent-trim{fill:var(--accent)}
 .log-ticker{font-family:'Consolas','Courier New',monospace;font-size:13px;font-weight:700;fill:var(--text)}
 .log-date{font-family:'Consolas','Courier New',monospace;font-size:9.5px;fill:var(--muted)}
 .log-thesis{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;font-size:11px;fill:var(--muted)}
 .log-perf{font-family:'Consolas','Courier New',monospace;font-size:10.5px;font-weight:700;fill:var(--accent2)}
-.log-perf-down{fill:var(--red)}
 .log-status{font-family:'Consolas','Courier New',monospace;font-size:9px;fill:var(--muted)}
 
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
@@ -260,20 +257,6 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <text class="log-status" x="52" y="194">Filled Jul 16 &middot; from YR Signal</text>
   </g>
 
-  <!-- sixth element: a second, different trade-log card in the mirrored
-       right-margin gap -- a real Trim entry (BE, Jun 16 2026) for variety
-       against the left card's Buy -->
-  <g class="bg-logcard" id="logCard2">
-    <rect class="log-card-bg" x="1250" y="380" width="320" height="150" rx="10"/>
-    <rect class="log-card-accent log-card-accent-trim" x="1250" y="380" width="4" height="150"/>
-    <text class="log-badge log-badge-trim" x="1272" y="408">TRIM</text>
-    <text class="log-ticker"               x="1330" y="409">BE</text>
-    <text class="log-date"                 x="1372" y="408">Jun 16, 2026</text>
-    <text class="log-thesis" x="1272" y="436">Partial trim after a sharp drop tied</text>
-    <text class="log-thesis" x="1272" y="454">to a competitor's gas-turbine deal.</text>
-    <text class="log-perf log-perf-down" x="1272" y="486">BE -1.3% since trim</text>
-    <text class="log-status" x="1272" y="504">Open &middot; remainder held</text>
-  </g>
 </svg>
 <div class="wrap">
 
