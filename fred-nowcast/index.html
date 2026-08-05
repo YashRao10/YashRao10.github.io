@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>FRED Nowcast — Real GDP, % change (annualized, quarterly)</title>
+<title>FRED Nowcast — Real GDP, % change (annualized, quarterly) · YR Hub</title>
 <style>
   :root { color-scheme: dark; }
   body {
@@ -79,10 +79,14 @@
 
   .verdict { font-size: 14px; line-height: 1.6; }
   .footer { color:#898781; font-size: 11px; margin-top: 32px; }
+  .hub-crumb { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.3px;
+    color:#e8a33d; text-decoration:none; margin-bottom:16px; }
+  .hub-crumb:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <a class="hub-crumb" href="../index.html">&larr; YR Hub</a>
   <h1>FRED Nowcast — Real GDP, % change (annualized, quarterly)</h1>
   <div class="subtitle">A bridge-equation OLS nowcast of Real GDP, % change (annualized, quarterly), built from 5 higher-frequency leading indicators.</div>
 
