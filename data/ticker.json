@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-08-07T20:04:15Z",
+  "updated_at": "2026-08-07T21:06:02Z",
   "quotes": [
     {
       "symbol": "SPY",
-      "price": 773.22,
+      "price": 773.26,
       "change_pct": 0.55
     },
     {
       "symbol": "XLK",
-      "price": 187.96,
-      "change_pct": 0.89
+      "price": 187.97,
+      "change_pct": 0.9
     },
     {
       "symbol": "XLF",
-      "price": 57.62,
-      "change_pct": -0.3
+      "price": 57.6,
+      "change_pct": -0.34
     },
     {
       "symbol": "XLV",
-      "price": 165.67,
-      "change_pct": 0.85
+      "price": 165.68,
+      "change_pct": 0.86
     },
     {
       "symbol": "XLE",
-      "price": 57.48,
-      "change_pct": -1.41
+      "price": 57.5,
+      "change_pct": -1.37
     },
     {
       "symbol": "XLI",
-      "price": 185.15,
-      "change_pct": 0.06
+      "price": 185.18,
+      "change_pct": 0.08
     },
     {
       "symbol": "XLY",
-      "price": 119.83,
-      "change_pct": 1.29
+      "price": 119.86,
+      "change_pct": 1.32
     },
     {
       "symbol": "XLP",
@@ -53,13 +53,13 @@
     },
     {
       "symbol": "XLRE",
-      "price": 44.99,
-      "change_pct": 0.4
+      "price": 44.98,
+      "change_pct": 0.38
     },
     {
       "symbol": "XLC",
       "price": 111.25,
-      "change_pct": 0.07
+      "change_pct": 0.06
     },
     {
       "symbol": "GOOGL",
@@ -73,8 +73,8 @@
     },
     {
       "symbol": "BE",
-      "price": 219.03,
-      "change_pct": -5.43
+      "price": 219.34,
+      "change_pct": -5.29
     }
   ]
 }
