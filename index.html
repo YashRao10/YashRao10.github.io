@@ -83,13 +83,16 @@ body{
 .globe-outline{fill:none;stroke:var(--accent2);stroke-width:1.5;opacity:.6}
 .globe-lat{fill:none;stroke:var(--accent2);stroke-width:1;opacity:.38}
 .globe-meridian{fill:none;stroke:var(--accent2);stroke-width:1;opacity:.5;
-  transform-origin:800px 300px;animation:globe-spin 14s ease-in-out infinite}
+  transform-origin:800px 300px;animation:globe-spin 14s ease-in-out infinite;
+  will-change:transform}
 .globe-meridian.alt{stroke:var(--accent);opacity:.4}
 .globe-ring{fill:none;stroke-width:1.25;transform-origin:800px 300px}
-.globe-ring-a{stroke:var(--accent);opacity:.4;animation:globe-ring-spin 42s linear infinite}
-.globe-ring-b{stroke:var(--accent2);opacity:.32;animation:globe-ring-spin 58s linear infinite reverse}
+.globe-ring-a{stroke:var(--accent);opacity:.4;animation:globe-ring-spin 42s linear infinite;
+  will-change:transform}
+.globe-ring-b{stroke:var(--accent2);opacity:.32;animation:globe-ring-spin 58s linear infinite reverse;
+  will-change:transform}
 .globe-sweep{fill:var(--accent2);opacity:.14;transform-origin:800px 300px;
-  animation:globe-ring-spin 6s linear infinite}
+  animation:globe-ring-spin 6s linear infinite;will-change:transform}
 .globe-node{fill:var(--accent);opacity:.75}
 @keyframes globe-spin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
 @keyframes globe-ring-spin{to{transform:rotate(360deg)}}
@@ -235,11 +238,9 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <ellipse class="globe-lat" cx="800" cy="400" rx="218.1" ry="65.4"/>
     <ellipse class="globe-lat" cx="800" cy="480" rx="158.75" ry="47.6"/>
     <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:0s"/>
-    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-2.33s"/>
-    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:-4.67s"/>
-    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-7s"/>
-    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:-9.33s"/>
-    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-11.67s"/>
+    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-3.5s"/>
+    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:-7s"/>
+    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-10.5s"/>
     <circle class="globe-outline" cx="800" cy="300" r="240"/>
     <circle class="globe-node" cx="660" cy="210" r="3.5"/>
     <circle class="globe-node" cx="930" cy="250" r="3"/>
