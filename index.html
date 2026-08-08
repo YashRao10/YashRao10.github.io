@@ -71,6 +71,32 @@ body{
 .log-perf{font-family:'Consolas','Courier New',monospace;font-size:10.5px;font-weight:700;fill:var(--accent2)}
 .log-status{font-family:'Consolas','Courier New',monospace;font-size:9px;fill:var(--muted)}
 
+/* Wireframe globe, hero centerpiece: pure SVG/CSS, no WebGL. Meridian
+   circles fake rotation by oscillating scaleX (classic "flatten to a line
+   and back" trick, since a meridian great circle viewed edge-on is a line
+   and face-on is a full circle) -- latitude rings stay static since their
+   shape doesn't change as the sphere spins around its vertical axis. */
+.bg-globe{opacity:.5}
+.globe-glow stop:nth-child(1){stop-color:var(--accent2);stop-opacity:.16}
+.globe-glow stop:nth-child(2){stop-color:var(--accent2);stop-opacity:.04}
+.globe-glow stop:nth-child(3){stop-color:var(--accent2);stop-opacity:0}
+.globe-outline{fill:none;stroke:var(--accent2);stroke-width:1.5;opacity:.6}
+.globe-lat{fill:none;stroke:var(--accent2);stroke-width:1;opacity:.38}
+.globe-meridian{fill:none;stroke:var(--accent2);stroke-width:1;opacity:.5;
+  transform-origin:800px 300px;animation:globe-spin 14s ease-in-out infinite}
+.globe-meridian.alt{stroke:var(--accent);opacity:.4}
+.globe-ring{fill:none;stroke-width:1.25;transform-origin:800px 300px}
+.globe-ring-a{stroke:var(--accent);opacity:.4;animation:globe-ring-spin 42s linear infinite}
+.globe-ring-b{stroke:var(--accent2);opacity:.32;animation:globe-ring-spin 58s linear infinite reverse}
+.globe-sweep{fill:var(--accent2);opacity:.14;transform-origin:800px 300px;
+  animation:globe-ring-spin 6s linear infinite}
+.globe-node{fill:var(--accent);opacity:.75}
+@keyframes globe-spin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+@keyframes globe-ring-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){
+  .globe-meridian,.globe-ring-a,.globe-ring-b,.globe-sweep{animation:none}
+}
+
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
 .ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
 .ticker-viewport{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
@@ -187,6 +213,39 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </div>
 </div>
 <svg class="bg-decor" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- wireframe globe, hero centerpiece: sphere built from static latitude
+       ellipses + 6 meridian circles that fake rotation by oscillating
+       scaleX, two tilted orbital rings spinning opposite directions, and a
+       radar-style sweep wedge -- see the .globe-* rules above for the how -->
+  <defs>
+    <radialGradient class="globe-glow" id="globeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"/>
+      <stop offset="70%"/>
+      <stop offset="100%"/>
+    </radialGradient>
+  </defs>
+  <g class="bg-globe" id="hudGlobe">
+    <circle cx="800" cy="300" r="300" fill="url(#globeGlow)"/>
+    <path class="globe-sweep" d="M800,300 L800,45 A255,255 0 0,1 870.3,54.9 Z"/>
+    <g transform="rotate(-16 800 300)"><ellipse class="globe-ring globe-ring-a" cx="800" cy="300" rx="300" ry="80"/></g>
+    <g transform="rotate(22 800 300)"><ellipse class="globe-ring globe-ring-b" cx="800" cy="300" rx="270" ry="95"/></g>
+    <ellipse class="globe-lat" cx="800" cy="120" rx="158.75" ry="47.6"/>
+    <ellipse class="globe-lat" cx="800" cy="200" rx="218.1" ry="65.4"/>
+    <ellipse class="globe-lat" cx="800" cy="300" rx="240"   ry="72"/>
+    <ellipse class="globe-lat" cx="800" cy="400" rx="218.1" ry="65.4"/>
+    <ellipse class="globe-lat" cx="800" cy="480" rx="158.75" ry="47.6"/>
+    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:0s"/>
+    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-2.33s"/>
+    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:-4.67s"/>
+    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-7s"/>
+    <circle  class="globe-meridian"     cx="800" cy="300" r="240" style="animation-delay:-9.33s"/>
+    <circle  class="globe-meridian alt" cx="800" cy="300" r="240" style="animation-delay:-11.67s"/>
+    <circle class="globe-outline" cx="800" cy="300" r="240"/>
+    <circle class="globe-node" cx="660" cy="210" r="3.5"/>
+    <circle class="globe-node" cx="930" cy="250" r="3"/>
+    <circle class="globe-node" cx="760" cy="430" r="3.5"/>
+    <circle class="globe-node" cx="890" cy="390" r="3"/>
+  </g>
   <g class="bg-code" id="codeCluster">
     <!-- code-editor window, bottom-left: title bar + 3 dots + real lines from
          scripts/fetch_ticker.py, the script that feeds the ticker tape above -->
