@@ -2,10 +2,11 @@ name: Update ticker tape
 
 on:
   schedule:
-    # Every 30 min, roughly market hours (9:30am-4pm ET) on weekdays.
-    # Cron is UTC; 13:00-21:00 UTC covers ET regardless of DST with slack
-    # on both ends rather than trying to track the DST shift exactly.
-    - cron: "0,30 13-20 * * 1-5"
+    # Every 30 min, every day, all day -- runs continuously instead of only
+    # during weekday market hours, so the tape never sits stuck on a stale
+    # snapshot over nights/weekends (prices just won't move while markets
+    # are closed, but "updated_at" and the tape itself stay live).
+    - cron: "0,30 * * * *"
   workflow_dispatch: {}
 
 permissions:
