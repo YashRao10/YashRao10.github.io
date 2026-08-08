@@ -103,7 +103,7 @@ body{
 .ticker-tape{position:relative;z-index:2;width:100%;overflow:hidden;background:rgba(12,13,16,.86);border-bottom:1px solid var(--border);backdrop-filter:blur(3px);display:flex;align-items:center}
 .ticker-badge{flex:none;font-family:'Consolas','Courier New',monospace;font-size:9.5px;letter-spacing:1px;font-weight:700;color:var(--accent);background:var(--dim);padding:9px 12px;border-right:1px solid var(--border);white-space:nowrap}
 .ticker-viewport{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
-.ticker-track{display:inline-flex;align-items:center;will-change:transform;animation:ticker-scroll 45s linear infinite}
+.ticker-track{display:inline-flex;align-items:center;will-change:transform;animation:ticker-scroll 45s linear infinite;transition:opacity .22s ease}
 .ticker-item{display:inline-flex;align-items:center;gap:7px;font-family:'Consolas','Courier New',monospace;font-size:11.5px;padding:9px 18px;white-space:nowrap}
 .ticker-sym{color:var(--text);font-weight:700;letter-spacing:.3px}
 .ticker-price{color:var(--muted)}
@@ -628,6 +628,20 @@ document.addEventListener('keydown', e=>{
 
 (function loadTicker(){
   const track = document.getElementById('tickerTrack');
+  // Fade the swap and restart the scroll cycle from 0 rather than letting
+  // a CSS animation keyed to "-50%" jump mid-cycle when the track's own
+  // width changes (loading placeholder -> full duplicated ticker list).
+  function swapTrack(html, {duration, noAnimation} = {}){
+    track.style.opacity = '0';
+    setTimeout(() => {
+      track.innerHTML = html;
+      track.style.animation = 'none';
+      if (duration) track.style.animationDuration = duration;
+      void track.offsetWidth; // force reflow so the restart below is clean
+      track.style.animation = noAnimation ? 'none' : '';
+      track.style.opacity = '1';
+    }, 220);
+  }
   fetch('data/ticker.json', {cache:'no-store'})
     .then(r => { if(!r.ok) throw new Error('no ticker data yet'); return r.json(); })
     .then(data => {
@@ -644,12 +658,10 @@ document.addEventListener('keydown', e=>{
         </span>`;
       }).join('');
       // duplicated once for a seamless -50% loop
-      track.innerHTML = itemHTML + itemHTML;
-      track.style.animationDuration = Math.max(24, quotes.length * 3) + 's';
+      swapTrack(itemHTML + itemHTML, {duration: Math.max(24, quotes.length * 3) + 's'});
     })
     .catch(() => {
-      track.innerHTML = '<span class="ticker-loading">Ticker data not published yet &mdash; first sync runs once this is live on GitHub Pages.</span>';
-      track.style.animation = 'none';
+      swapTrack('<span class="ticker-loading">Ticker data not published yet &mdash; first sync runs once this is live on GitHub Pages.</span>', {noAnimation: true});
     });
 })();
 </script>
