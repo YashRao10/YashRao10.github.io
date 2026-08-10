@@ -459,8 +459,8 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">DO</div>
       <div class="tile-title">DO-178C Tool Qual</div>
-      <div class="tile-hook">Aerospace-compliance consulting</div>
-      <div class="tile-badge badge-progress">Confidential</div>
+      <div class="tile-hook">Two synthetic aerospace systems, one V-model, zero fabricated evidence</div>
+      <div class="tile-badge badge-progress">2 systems · 100% coverage</div>
     </button>
 
   </div>
@@ -613,11 +613,12 @@ const PROJECTS = {
     finding:'<b>First run:</b> 18/18 manual checks passed, and the process separately surfaced a real negation-blindness bug in an unrelated classifier.'
   },
   'consulting': {
-    badge:'Confidential', badgeClass:'badge-progress',
+    badge:'2 systems · 100% coverage', badgeClass:'badge-progress',
     body:[
-      "Tool-qualification consulting for an aerospace-compliance vendor — building demo projects that show full requirements-to-test traceability end to end, DO-178C style.",
-      "Client and project details aren't public. This tile exists so the work is acknowledged without disclosing anything about it."
-    ]
+      "Two independent, fully synthetic aerospace software systems — one built to a stricter safety level, one to a lighter one — each carrying the complete DO-178C V-model end to end: system requirements down through low-level requirements, source code, requirements-based tests, and independently reproduced code coverage. Built specifically to demonstrate an aerospace-compliance tool's workflow, not to represent any real client system.",
+      "Both systems hit 100% line and branch coverage — and MC/DC gap analysis on top of that (checking whether each condition in a multi-part decision independently matters, not just whether every branch was hit) found 3 real gaps despite the 100% branch number, closed with new targeted tests. Full requirements-to-test traceability, on both systems, verified end to end."
+    ],
+    finding:'<b>Caught a real bug during test authoring, not a hypothetical one:</b> two safety thresholds sat close enough together that a single input value could trigger both at once in the same execution cycle — an interaction the original test plan hadn\'t accounted for, found only because the traceability discipline forced every case to be checked against the actual logic, not just the spec.'
   }
 };
 
