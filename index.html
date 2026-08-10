@@ -410,6 +410,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">4 built, validated</div>
     </button>
 
+    <button class="tile" type="button" data-project="warehouse" aria-label="View details: Warehouse">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">DW</div>
+      <div class="tile-title">Warehouse</div>
+      <div class="tile-hook">One source of truth instead of six scattered scripts</div>
+      <div class="tile-badge badge-research">dbt + DuckDB</div>
+    </button>
+
   </div>
 
   <h2 class="section-label"><span class="num">05</span> In progress</h2>
@@ -524,6 +532,13 @@ const PROJECTS = {
       "Each agent encodes hard-won process rules directly into its own prompt — the specific gotchas, verification steps, and defaults learned the hard way in earlier sessions — so a lesson learned once doesn't have to get relearned by hand every time."
     ],
     finding:'<b>Caught a real bug on its first live run:</b> one agent\'s own checklist had a wrong directional rule baked in for a volatility ETP — documented as moving "inversely" to spot VIX, when it actually moves the same direction. It flagged the contradiction against that day\'s own market narrative instead of blindly applying the wrong rule, and got corrected on the spot.'
+  },
+  'warehouse': {
+    badge:'dbt + DuckDB', badgeClass:'badge-research',
+    body:[
+      "A dbt + DuckDB data layer tying together the other tools on this page — portfolio performance, macro indicators, sector and regime data — into one tested source of truth, instead of numbers computed inline and duplicated across scattered scripts."
+    ],
+    finding:'<b>Built to close a recurring bug pattern:</b> a number computed in one dashboard script would drift out of sync with reality and get caught by hand weeks later. A single warehouse with automated tests (28/28 passing) closes that gap at the source instead of patching it after the fact each time.'
   },
   'disclosure': {
     badge:'Policy', badgeClass:'badge-progress',
