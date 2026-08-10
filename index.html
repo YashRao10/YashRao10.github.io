@@ -418,6 +418,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">dbt + DuckDB</div>
     </button>
 
+    <button class="tile" type="button" data-project="financial-mcp" aria-label="View details: Financial Analysis MCP">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">FA</div>
+      <div class="tile-title">Financial Analysis MCP</div>
+      <div class="tile-hook">Every quant tool on this page, callable from one interface</div>
+      <div class="tile-badge badge-research">5 tools, verified</div>
+    </button>
+
   </div>
 
   <h2 class="section-label"><span class="num">05</span> In progress</h2>
@@ -539,6 +547,14 @@ const PROJECTS = {
       "A dbt + DuckDB data layer tying together the other tools on this page — portfolio performance, macro indicators, sector and regime data — into one tested source of truth, instead of numbers computed inline and duplicated across scattered scripts."
     ],
     finding:'<b>Built to close a recurring bug pattern:</b> a number computed in one dashboard script would drift out of sync with reality and get caught by hand weeks later. A single warehouse with automated tests (28/28 passing) closes that gap at the source instead of patching it after the fact each time.'
+  },
+  'financial-mcp': {
+    badge:'5 tools, verified', badgeClass:'badge-research',
+    body:[
+      "A personal analog of the kind of unified financial-data connector larger platforms have started shipping — one MCP server exposing the Warehouse and every quant tool on this page (Regime Classifier, Factor Decomposition, FRED Nowcast, Causal Toolkit) as callable tools, so an AI agent can query all of them through one interface instead of five separate scripts.",
+      "Verified at two levels, not just one: every tool works as a direct function call, and separately over the real MCP wire protocol (list_tools + call_tool against a live client) — the two aren't the same test, and the second one is what actually matters for real use."
+    ],
+    finding:'<b>The protocol-level test caught a real bug the direct-call test missed:</b> one tool returned pandas timestamp objects that serialize fine inside a Python process but aren\'t JSON-encodable once they actually cross the wire. Fixed by round-tripping through explicit ISO-formatted JSON instead. The same protocol-level pass also re-surfaced Factor Decomposition\'s own still-open sector/rate attribution bug, running fresh against production code rather than relying on the earlier finding.'
   },
   'disclosure': {
     badge:'Policy', badgeClass:'badge-progress',
