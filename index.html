@@ -397,6 +397,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">Bridge OLS</div>
     </button>
 
+    <button class="tile" type="button" data-project="econ-briefing" aria-label="View details: Econ Briefing">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">EB</div>
+      <div class="tile-title">Econ Briefing</div>
+      <div class="tile-hook">Rates, inflation, and what regime we're in</div>
+      <div class="tile-badge badge-research">FRED · on demand</div>
+    </button>
+
   </div>
 
   <h2 class="section-label"><span class="num">04</span> Tooling</h2>
@@ -547,6 +555,15 @@ const PROJECTS = {
       "A dbt + DuckDB data layer tying together the other tools on this page — portfolio performance, macro indicators, sector and regime data — into one tested source of truth, instead of numbers computed inline and duplicated across scattered scripts."
     ],
     finding:'<b>Built to close a recurring bug pattern:</b> a number computed in one dashboard script would drift out of sync with reality and get caught by hand weeks later. A single warehouse with automated tests (28/28 passing) closes that gap at the source instead of patching it after the fact each time.'
+  },
+  'econ-briefing': {
+    badge:'FRED · on demand', badgeClass:'badge-research',
+    body:[
+      "A macro snapshot pulled straight from FRED — Fed funds rate, 2-year and 10-year Treasury yields, CPI, unemployment — paired with the same regime classifier from above, showing which sectors have actually done best historically under whatever regime the data currently points to.",
+      "Runs on demand rather than a fixed schedule, and deliberately says so in plain terms on a day with no new data instead of quietly reusing stale numbers."
+    ],
+    finding:'<b>Two homes, one honesty rule:</b> a private version ties the same macro read to this portfolio\'s real sector exposure; the public version strips that part out entirely — same macro data, zero portfolio-composition leakage, on purpose.',
+    link:'https://yashrao10.github.io/signal-log/#econ', linkText:'See it live on Signal Log'
   },
   'financial-mcp': {
     badge:'5 tools, verified', badgeClass:'badge-research',
