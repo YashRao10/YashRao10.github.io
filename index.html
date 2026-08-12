@@ -485,6 +485,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
   <footer>
     <span>YR &middot; HUB</span>
+    <span id="dataSync"></span>
   </footer>
 </div>
 
@@ -737,11 +738,25 @@ document.addEventListener('keydown', e=>{
       }).join('');
       // duplicated once for a seamless -50% loop
       swapTrack(itemHTML + itemHTML, {duration: Math.max(24, quotes.length * 3) + 's'});
+      if(data.updated_at) showDataSync(data.updated_at);
     })
     .catch(() => {
       swapTrack('<span class="ticker-loading">Ticker data not published yet &mdash; first sync runs once this is live on GitHub Pages.</span>', {noAnimation: true});
     });
 })();
+
+// Footer "data synced" indicator, reusing the ticker's own updated_at
+// timestamp rather than adding a second data source just for this.
+function showDataSync(isoTimestamp){
+  const el = document.getElementById('dataSync');
+  if(!el) return;
+  const mins = Math.max(0, Math.round((Date.now() - new Date(isoTimestamp).getTime()) / 60000));
+  let label;
+  if(mins < 1) label = 'just now';
+  else if(mins < 60) label = mins + 'm ago';
+  else label = Math.round(mins / 60) + 'h ago';
+  el.textContent = 'Data synced ' + label;
+}
 </script>
 </body>
 </html>
