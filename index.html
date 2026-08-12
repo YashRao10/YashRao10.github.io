@@ -654,11 +654,13 @@ function openModal(key, trigger){
   backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
   modalClose.focus();
+  history.replaceState(null, '', '#' + key);
 }
 function closeModal(){
   backdrop.classList.remove('open');
   document.body.style.overflow = '';
   if(lastTrigger) lastTrigger.focus();
+  history.replaceState(null, '', location.pathname + location.search);
 }
 function focusableInModal(){
   return Array.from(modal.querySelectorAll('button, a[href]')).filter(el=>el.offsetParent !== null);
@@ -669,6 +671,27 @@ document.querySelectorAll('[data-project]').forEach(el=>{
 });
 modalClose.addEventListener('click', closeModal);
 backdrop.addEventListener('click', e=>{ if(e.target === backdrop) closeModal(); });
+
+// Deep-linking: a URL like /#financial-mcp opens straight to that tile's
+// modal, so a specific project can be shared/linked directly instead of
+// always landing on the top of the whole page. Same pattern already used
+// for the signal-log site's own tab hashes.
+(function openFromHash(){
+  const key = location.hash.slice(1);
+  if(key && PROJECTS[key]){
+    const trigger = document.querySelector(`[data-project="${key}"]`);
+    if(trigger) openModal(key, trigger);
+  }
+})();
+window.addEventListener('hashchange', () => {
+  const key = location.hash.slice(1);
+  if(key && PROJECTS[key]){
+    const trigger = document.querySelector(`[data-project="${key}"]`);
+    if(trigger) openModal(key, trigger);
+  } else if(!key){
+    closeModal();
+  }
+});
 document.addEventListener('keydown', e=>{
   if(!backdrop.classList.contains('open')) return;
   if(e.key === 'Escape'){ closeModal(); return; }
