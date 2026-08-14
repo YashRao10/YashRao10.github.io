@@ -454,7 +454,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">GPT</div>
       <div class="tile-title">GPT From Scratch</div>
       <div class="tile-hook">A transformer, built by hand</div>
-      <div class="tile-badge badge-progress">Phase 1 done</div>
+      <div class="tile-badge badge-progress">BPE + KV-cache done</div>
     </button>
 
     <button class="tile" type="button" data-project="ai-security" aria-label="View details: AI Security">
@@ -535,7 +535,7 @@ const PROJECTS = {
     body:[
       "The concrete outcomes behind the tiles above, in one place:"
     ],
-    finding:'<b>GPT From Scratch:</b> Phase 1 closed at val loss 1.6164, character-level, zero pretrained weights.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real, still-unfixed sector/rate attribution bug in its own production output.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s own still-open attribution bug along the way.'
+    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
@@ -611,12 +611,12 @@ const PROJECTS = {
     link:'fred-nowcast/index.html', linkText:'See the current estimate'
   },
   'gpt-from-scratch': {
-    badge:'Phase 1 done', badgeClass:'badge-progress',
+    badge:'BPE + KV-cache done', badgeClass:'badge-progress',
     body:[
       "A small GPT-style decoder-only transformer, implemented from first principles in PyTorch — no nn.Transformer, no pretrained weights. The goal isn't a strong model; it's understanding every piece of the architecture underneath the LLM-based tools used daily, rather than only calling one through an API.",
-      "Built by hand: a character-level tokenizer, learned token + positional embeddings, causal multi-head self-attention with a lower-triangular mask, a pre-norm residual transformer block, and autoregressive sampling with temperature/top-k."
+      "Built by hand: byte-level BPE tokenization (the real GPT-2/3 design — starts from 256 raw byte values, greedily merges the most frequent pair), learned token + positional embeddings, causal multi-head self-attention with a lower-triangular mask, a pre-norm residual transformer block, KV-cached autoregressive sampling, and temperature/top-k decoding."
     ],
-    finding:'<b>Status:</b> Phase 1 (character-level, tiny-Shakespeare corpus) closed at val loss 1.6164. Phase 2 — BPE tokenization — is next.'
+    finding:'<b>Status:</b> character-level baseline closed at val loss 1.6164. BPE tokenizer built from scratch (byte-level, no library) and verified round-trip correct on non-ASCII/empty/unseen input. KV-caching added as a parallel inference path — proven byte-identical to the uncached path on the same seed/prompt, and measured 1.64x faster. One honest tradeoff, not hidden: the cache evicts the oldest entry once the context window fills, so very long generations lose some positional signal the slower uncached path still has.'
   },
   'ai-security': {
     badge:'Phase 1 built', badgeClass:'badge-progress',
