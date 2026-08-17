@@ -1,11 +1,6 @@
 {
-  "updated_at": "2026-08-17T23:29:17Z",
+  "updated_at": "2026-08-17T23:53:37Z",
   "quotes": [
-    {
-      "symbol": "SPY",
-      "price": 772.67,
-      "change_pct": -0.43
-    },
     {
       "symbol": "XLK",
       "price": 190.32,
