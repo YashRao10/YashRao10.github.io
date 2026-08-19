@@ -1,80 +1,80 @@
 {
-  "updated_at": "2026-08-19T16:39:09Z",
+  "updated_at": "2026-08-19T17:32:48Z",
   "quotes": [
     {
       "symbol": "SPY",
-      "price": 770.53,
-      "change_pct": 0.45
+      "price": 769.21,
+      "change_pct": 0.28
     },
     {
       "symbol": "XLK",
-      "price": 184.68,
-      "change_pct": -0.27
+      "price": 183.79,
+      "change_pct": -0.74
     },
     {
       "symbol": "XLF",
-      "price": 57.81,
-      "change_pct": 0.07
+      "price": 57.71,
+      "change_pct": -0.1
     },
     {
       "symbol": "XLV",
-      "price": 174.16,
-      "change_pct": 2.48
+      "price": 174.95,
+      "change_pct": 2.95
     },
     {
       "symbol": "XLE",
-      "price": 63.76,
-      "change_pct": 0.34
+      "price": 63.67,
+      "change_pct": 0.2
     },
     {
       "symbol": "XLI",
-      "price": 182.62,
-      "change_pct": -0.99
+      "price": 182.49,
+      "change_pct": -1.07
     },
     {
       "symbol": "XLY",
-      "price": 118.45,
-      "change_pct": 1.67
+      "price": 118.4,
+      "change_pct": 1.63
     },
     {
       "symbol": "XLP",
-      "price": 86.39,
-      "change_pct": 0.61
+      "price": 86.58,
+      "change_pct": 0.84
     },
     {
       "symbol": "XLU",
-      "price": 43.99,
-      "change_pct": -0.11
+      "price": 44.0,
+      "change_pct": -0.09
     },
     {
       "symbol": "XLB",
-      "price": 52.83,
-      "change_pct": 2.03
+      "price": 52.72,
+      "change_pct": 1.83
     },
     {
       "symbol": "XLRE",
-      "price": 44.74,
-      "change_pct": 0.33
+      "price": 44.69,
+      "change_pct": 0.22
     },
     {
       "symbol": "XLC",
-      "price": 111.73,
-      "change_pct": 0.95
+      "price": 111.63,
+      "change_pct": 0.86
     },
     {
       "symbol": "GOOGL",
-      "price": 345.22,
-      "change_pct": 0.33
+      "price": 343.73,
+      "change_pct": -0.11
     },
     {
       "symbol": "TSLA",
-      "price": 346.92,
-      "change_pct": 3.19
+      "price": 346.15,
+      "change_pct": 2.97
     },
     {
       "symbol": "BE",
-      "price": 204.28,
-      "change_pct": -0.83
+      "price": 202.23,
+      "change_pct": -1.48
     }
   ]
 }
