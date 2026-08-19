@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-19T08:47:22Z",
+  "updated_at": "2026-08-19T09:40:47Z",
   "quotes": [
     {
       "symbol": "SPY",
@@ -39,7 +39,7 @@
     {
       "symbol": "XLP",
       "price": 85.58,
-      "change_pct": -0.33
+      "change_pct": -0.07
     },
     {
       "symbol": "XLU",
