@@ -357,8 +357,8 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-rule"></div>
     <p>The main hub for my workspace and projects in progress — live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Projects, live + in progress</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Honest findings — bugs &amp; limits, not hidden</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">14</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Honest findings — bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
     </div>
@@ -401,7 +401,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">&#9733;</div>
       <div class="tile-title">Highlights</div>
       <div class="tile-hook">The real numbers behind the work above</div>
-      <div class="tile-badge badge-live">8 results</div>
+      <div class="tile-badge badge-live">10 results</div>
     </button>
 
   </div>
@@ -476,6 +476,22 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-title">Financial Analysis MCP</div>
       <div class="tile-hook">Every quant tool on this page, callable from one interface</div>
       <div class="tile-badge badge-research">5 tools, verified</div>
+    </button>
+
+    <button class="tile" type="button" data-project="dal-c" aria-label="View details: dal-c">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">DC</div>
+      <div class="tile-title">dal-c</div>
+      <div class="tile-hook">A DO-178C-style C library, not just a demo of one</div>
+      <div class="tile-badge badge-research">2,479 checks · 100% MC/DC</div>
+    </button>
+
+    <button class="tile" type="button" data-project="mcp-ratchet" aria-label="View details: mcp-ratchet">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">MR</div>
+      <div class="tile-title">mcp-ratchet</div>
+      <div class="tile-hook">A rug-pull detector for MCP servers most scanners miss</div>
+      <div class="tile-badge badge-research">195 tests · 5 real targets</div>
     </button>
 
   </div>
@@ -565,11 +581,11 @@ const PROJECTS = {
     ]
   },
   'highlights': {
-    badge:'8 results', badgeClass:'badge-live',
+    badge:'10 results', badgeClass:'badge-live',
     body:[
       "The concrete outcomes behind the tiles above, in one place:"
     ],
-    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).'
+    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling — a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap — every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
@@ -620,6 +636,24 @@ const PROJECTS = {
       "Verified at two levels, not just one: every tool works as a direct function call, and separately over the real MCP wire protocol (list_tools + call_tool against a live client) — the two aren't the same test, and the second one is what actually matters for real use."
     ],
     finding:'<b>The protocol-level test caught a real bug the direct-call test missed:</b> one tool returned pandas timestamp objects that serialize fine inside a Python process but aren\'t JSON-encodable once they actually cross the wire. Fixed by round-tripping through explicit ISO-formatted JSON instead. The same protocol-level pass also re-surfaced Factor Decomposition\'s sector/rate attribution bug, running fresh against production code rather than relying on the earlier finding — that bug was root-caused and fixed the same week.'
+  },
+  'dal-c': {
+    badge:'2,479 checks · 100% MC/DC', badgeClass:'badge-research',
+    body:[
+      "A library of 15 reusable C99 components — saturating arithmetic, a fixed-point math type, CRC/COBS framing, a debounce/hysteresis/median-filter trio, a ring buffer, a rate limiter, a lookup table, a state machine, a cooperative scheduler, a PID controller, an M-of-N redundancy voter, and a watchdog — built to a Design Assurance Level C style: requirements-driven, no dynamic memory, no recursion, no unbounded loops.",
+      "Every implementation block carries a tag back to the low-level requirement it satisfies, and every requirement traces the other direction to a requirements-based test — 73 high-level and 182 low-level requirements backing 2,479 test checks, with CI failing the build below 100% line and 100% branch/condition (MC/DC) coverage on every module."
+    ],
+    finding:'<b>Verified past the coverage number, not just to it:</b> a 200,000-iteration invariant fuzz harness and a full run under UBSan + ASan on gcc, clang, and -m32 sit on top of the 100% MC/DC bar — coverage alone doesn\'t catch a saturating-arithmetic edge case a fuzzer will.',
+    link:'https://github.com/YashRao10/dal-c', linkText:'Browse the repo'
+  },
+  'mcp-ratchet': {
+    badge:'195 tests · 5 real targets', badgeClass:'badge-research',
+    body:[
+      "Every MCP security scanner that exists today — Cisco's, Snyk's, Invariant Labs' mcp-scan — checks a server once, at install time, and never looks again. mcp-ratchet is a static scanner plus a runtime proxy that fingerprints a server's tool surface once and can only ever detect drift against that baseline afterward — built against the documented \"rug pull\" attack class, where a tool definition silently changes after a human already approved it.",
+      "Every finding is labeled by what actually produced it, not blended together: a real Claude API call for the one judgment-based check (prompt injection), scripted deterministic rules for the rest (permission mismatches, secret scanning, dependency CVEs), and pure hashing — zero semantic judgment — for the drift fingerprint itself, which fires even on a whitespace-only change on purpose."
+    ],
+    finding:'<b>Caught its own blind spot while dogfooding:</b> the secret scanner\'s file-suffix list silently skipped every real <code>.env</code> file, because Python\'s own pathlib treats <code>.env</code> as having no suffix at all. Found by running the scanner against a target that actually had one, then fixed by checking the filename directly instead of trusting the suffix.',
+    link:'https://yashrao10.github.io/mcp-ratchet/', linkText:'See the live dashboard'
   },
   'disclosure': {
     badge:'Policy', badgeClass:'badge-progress',
