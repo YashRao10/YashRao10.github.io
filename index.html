@@ -357,8 +357,8 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-rule"></div>
     <p>The main hub for my workspace and projects in progress — live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">14</div><div class="hero-stat-label">Projects, live + in progress</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Honest findings — bugs &amp; limits, not hidden</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">11</div><div class="hero-stat-label">Honest findings — bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
     </div>
@@ -401,7 +401,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">&#9733;</div>
       <div class="tile-title">Highlights</div>
       <div class="tile-hook">The real numbers behind the work above</div>
-      <div class="tile-badge badge-live">10 results</div>
+      <div class="tile-badge badge-live">11 results</div>
     </button>
 
   </div>
@@ -523,6 +523,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-progress">2 systems · 100% coverage</div>
     </button>
 
+    <button class="tile" type="button" data-project="do330-qual" aria-label="View details: AI Tool Qualification">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">TQ</div>
+      <div class="tile-title">AI Tool Qualification</div>
+      <div class="tile-hook">Can an LLM assistant's own safety net be DO-330 qualified?</div>
+      <div class="tile-badge badge-progress">Candidate TQL-5</div>
+    </button>
+
   </div>
 
   <h2 class="section-label" id="sec-notes"><span class="num">06</span> Notes</h2>
@@ -581,11 +589,11 @@ const PROJECTS = {
     ]
   },
   'highlights': {
-    badge:'10 results', badgeClass:'badge-live',
+    badge:'11 results', badgeClass:'badge-live',
     body:[
       "The concrete outcomes behind the tiles above, in one place:"
     ],
-    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling — a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap — every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.'
+    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling — a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap — every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.<br><b>AI Tool Qualification:</b> a cold independent re-execution of its own DO-330 verification pass found five points where the prose outran the cited test — three fixed with new assertions, three accepted as already source-backed.'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
@@ -705,6 +713,15 @@ const PROJECTS = {
       "Deliberately out of scope, and said so directly rather than glossed over: independence in verification, formal tool qualification, target-hardware testing, and formal configuration-management baselines. These are demo systems built to show a workflow, not full certification packages."
     ],
     finding:'<b>Caught a real bug during test authoring, not a hypothetical one:</b> two safety thresholds sat close enough together that a single input value could trigger both at once in the same execution cycle — an interaction the original test plan hadn\'t accounted for, found only because the traceability discipline forced every case to be checked against the actual logic, not just the spec.'
+  },
+  'do330-qual': {
+    badge:'Candidate TQL-5', badgeClass:'badge-progress',
+    body:[
+      "A worked DO-330 tool-qualification study asking a question with almost no public precedent: if a DO-178C program credits an LLM-backed assistant as a verification tool, and a drift monitor is the configuration-integrity control that catches its interface changing after approval, does that monitor itself need qualifying — and to what level? Five documents — context and TQL determination, tool operational requirements, the plan, the verification cases, and the accomplishment summary — work the question against mcp-ratchet's actual drift-detection function, not a hypothetical one.",
+      "Verdict: a defensible candidate for TQL-5 under Criteria 3, at a named commit — and the study itself turned up three real source defects in mcp-ratchet along the way, all fixed before verification closed."
+    ],
+    finding:'<b>Checked its own homework, not just written it:</b> a separate cold independent re-execution and adversarial review re-ran the environment, suite, counts, and commits from scratch and returned "holds with minor caveats" — five points where the prose outran its cited test, three closed with new assertions, three accepted as already source-backed. A named human QA sign-off on a real program is the one thing still outstanding.',
+    link:'https://github.com/YashRao10/mcp-ratchet-do330', linkText:'Read the qualification study'
   }
 };
 
