@@ -449,6 +449,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">FRED · on demand</div>
     </button>
 
+    <button class="tile" type="button" data-project="connectivity-cost-index" aria-label="View details: Connectivity Cost Index">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">CCI</div>
+      <div class="tile-title">Connectivity Cost Index</div>
+      <div class="tile-hook">Is satellite internet a tax, or the best deal going?</div>
+      <div class="tile-badge badge-research">All 50 states + DC</div>
+    </button>
+
   </div>
 
   <h2 class="section-label" id="sec-tooling"><span class="num">04</span> Tooling</h2>
@@ -636,6 +644,15 @@ const PROJECTS = {
     ],
     finding:'<b>Two homes, one honesty rule:</b> a private version ties the same macro read to this portfolio\'s real sector exposure; the public version strips that part out entirely — same macro data, zero portfolio-composition leakage, on purpose.',
     link:'https://yashrao10.github.io/signal-log/#econ', linkText:'See it live on Signal Log'
+  },
+  'connectivity-cost-index': {
+    badge:'All 50 states + DC', badgeClass:'badge-research',
+    body:[
+      "A cost-per-Mbps comparison across every internet access technology — LEO satellite, GSO satellite, fiber, cable, DSL, fixed wireless — built from FCC's National Broadband Map and published ISP pricing, across all 50 states and DC rather than a hand-picked sample.",
+      "Layered with two more public datasets: Ookla's real-world speed data (advertised vs. actually measured) and NTIA's BEAD broadband-subsidy program, joined against the same market data to ask whether federal funding actually tracks where the coverage gaps are."
+    ],
+    finding:'<b>The premise didn\'t survive contact with the data, in a good way:</b> Starlink beats Verizon 5G Home / T-Mobile Home Internet on cost-per-Mbps in all 51 states/DC, by margins from 2.1x to 25.5x, losing only to wired infrastructure where that exists. Separately: BEAD\'s 2025 restructuring cut broadband subsidy funding by a median of 54% nationally — caught and confirmed by rebuilding the whole policy layer against real 2025 awards after the original 2023 figures turned out to be badly stale.',
+    link:'https://yashrao10.github.io/connectivity-cost-index/', linkText:'See the live site'
   },
   'financial-mcp': {
     badge:'5 tools, verified', badgeClass:'badge-research',
