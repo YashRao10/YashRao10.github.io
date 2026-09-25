@@ -13,10 +13,10 @@ suspects like animation count or speed.
 
 ## What's hosted here
 
-- `index.html` — the hub
-- `causal-toolkit/` — synthetic-control event-study case studies (rendered reports)
-- `factor-decomposition/` — per-holding market / sector / rate factor breakdowns
-- `fred-nowcast/` — GDP bridge-equation nowcast
-- `scripts/`, `data/` — the ticker-data refresh pipeline
+- `index.html`: the hub
+- `causal-toolkit/`: synthetic-control event-study case studies (rendered reports)
+- `factor-decomposition/`: per-holding market / sector / rate factor breakdowns
+- `fred-nowcast/`: GDP bridge-equation nowcast
+- `scripts/`, `data/`: the ticker-data refresh pipeline
 
 Static site, deployed on GitHub Pages.

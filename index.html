@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YR Hub</title>
-<meta name="description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
+<meta name="description" content="A working portfolio: live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
 <link rel="canonical" href="https://yashrao10.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230c0d10'/%3E%3Ctext x='50' y='68' font-family='Consolas,monospace' font-size='44' font-weight='800' fill='%23e8a33d' text-anchor='middle'%3EYR%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#0c0d10">
 <meta property="og:type" content="website">
 <meta property="og:title" content="YR Hub">
-<meta property="og:description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
+<meta property="og:description" content="A working portfolio: live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
 <meta property="og:url" content="https://yashrao10.github.io/">
 <meta property="og:image" content="https://yashrao10.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="YR Hub">
-<meta name="twitter:description" content="A working portfolio — live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
+<meta name="twitter:description" content="A working portfolio: live tools, research instruments, and projects still in progress, at the intersection of markets and applied engineering.">
 <meta name="twitter:image" content="https://yashrao10.github.io/og-image.png">
 <style>
 :root{
@@ -186,6 +186,14 @@ body{
   font-size:13px;line-height:1;transition:border-color .15s,color .15s;
 }
 
+.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:28px;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}
+.featured-label{font-family:'Consolas','Courier New',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:40px 0 -14px}
+.tile.feature{padding:22px 22px 20px;gap:10px;border-color:var(--accent);text-align:left}
+.tile.feature .tile-title{font-size:21px}
+.tile.feature .tile-hook{font-size:13px}
+.feature-stat{display:flex;align-items:baseline;gap:10px;margin-top:2px}
+.feature-stat b{font-family:'Consolas','Courier New',monospace;font-size:26px;color:var(--accent);font-weight:800}
+.feature-stat span{font-size:12px;color:var(--muted);line-height:1.4}
 .sub-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;font-family:-apple-system,'Segoe UI',system-ui,sans-serif}
 .sub-link{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:3px;padding:5px 10px;text-decoration:none;transition:color .15s,border-color .15s}
 .sub-link:hover{color:var(--accent);border-color:var(--accent)}
@@ -194,7 +202,8 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);font-
 footer a{color:var(--muted)}
 footer a:hover{color:var(--accent)}
 
-button.tile{all:unset;box-sizing:border-box;cursor:pointer;width:100%}
+/* :where() keeps this reset at zero specificity so the .tile card styles above still apply */
+:where(button.tile){all:unset;box-sizing:border-box;cursor:pointer;width:100%}
 button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .modal-backdrop{
@@ -355,10 +364,10 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-eyebrow">Markets <span>&times;</span> Applied Engineering</div>
     <h1><span>YR Hub</span></h1>
     <div class="hero-rule"></div>
-    <p>The main hub for my workspace and projects in progress — live tools, finished research, and the work still underway. Click into any of it below.</p>
+    <p>The main hub for my workspace and projects in progress: live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Projects, live + in progress</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">11</div><div class="hero-stat-label">Honest findings — bugs &amp; limits, not hidden</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">17</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">Honest findings: bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
     </div>
@@ -373,6 +382,24 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <a href="#sec-notes">06 Notes</a>
     <a href="#sec-elsewhere">07 Elsewhere</a>
   </nav>
+
+  <div class="featured-label">Featured work</div>
+  <div class="featured">
+    <button class="tile feature" type="button" data-project="connectivity-cost-index" aria-label="View details: Connectivity Cost Index">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-title">Connectivity Cost Index</div>
+      <div class="tile-hook">Is satellite internet a tax, or the best deal going? Every home internet technology, priced per Mbps across all 50 states + DC.</div>
+      <div class="feature-stat"><b>51/51</b><span>states where Starlink beats 5G home internet per Mbps, yet 4.3x to 49x pricier than wired where wired exists</span></div>
+      <div class="tile-badge badge-research">Flagship · live site</div>
+    </button>
+    <button class="tile feature" type="button" data-project="spec-conformance-evals" aria-label="View details: spec-conformance-evals">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-title">spec-conformance-evals</div>
+      <div class="tile-hook">Does the model do what its spec says? An LLM eval harness where every test traces to a numbered spec clause.</div>
+      <div class="feature-stat"><b>85.2%</b><span>conformance over 330 samples, with every weak clause hand-read and two grader errors caught</span></div>
+      <div class="tile-badge badge-research">Flagship · results dashboard</div>
+    </button>
+  </div>
 
   <h2 class="section-label" id="sec-live"><span class="num">01</span> Live</h2>
   <div class="cards">
@@ -401,7 +428,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">&#9733;</div>
       <div class="tile-title">Highlights</div>
       <div class="tile-hook">The real numbers behind the work above</div>
-      <div class="tile-badge badge-live">11 results</div>
+      <div class="tile-badge badge-live">13 results</div>
     </button>
 
   </div>
@@ -454,13 +481,21 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">CCI</div>
       <div class="tile-title">Connectivity Cost Index</div>
       <div class="tile-hook">Is satellite internet a tax, or the best deal going?</div>
-      <div class="tile-badge badge-research">All 50 states + DC</div>
+      <div class="tile-badge badge-research">Flagship · 50 states + DC</div>
     </button>
 
   </div>
 
   <h2 class="section-label" id="sec-tooling"><span class="num">04</span> Tooling</h2>
   <div class="cards">
+
+    <button class="tile" type="button" data-project="spec-conformance-evals" aria-label="View details: spec-conformance-evals">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">SC</div>
+      <div class="tile-title">spec-conformance-evals</div>
+      <div class="tile-hook">Does the model do what its spec says, with receipts?</div>
+      <div class="tile-badge badge-research">Run 5 · 85.2%</div>
+    </button>
 
     <button class="tile" type="button" data-project="agent-tooling" aria-label="View details: Agent Tooling">
       <div class="tile-plus" aria-hidden="true">+</div>
@@ -584,98 +619,107 @@ const PROJECTS = {
   'signal-log': {
     badge:'Live · updated as trades happen', badgeClass:'badge-live',
     body:[
-      "A public log of real trades and the reasoning behind them — buy, sell, or trim, with the date and the why. No dollar amounts or position sizes are ever posted; the goal is to share ideas, not let anyone reverse-engineer account size.",
+      "A public log of real trades and the reasoning behind them: buy, sell, or trim, with the date and the why. No dollar amounts or position sizes are ever posted; the goal is to share ideas, not let anyone reverse-engineer account size.",
       "Four tabs beyond the trade log itself: Insights (longer market-analysis posts, an earnings calendar, sector performance), Econ Briefing (rates/inflation/jobs tracking plus a hand-built market-regime classifier backtested to 1999, and an Event Study section running synthetic-control tests on macro events), and Watchlist (researched but not yet bought)."
     ],
-    finding:'<b>Style:</b> mostly long-term positioning around AI infrastructure plus sector-diversification adds — not day-trading, not options.',
+    finding:'<b>Style:</b> mostly long-term positioning around AI infrastructure plus sector-diversification adds: not day-trading, not options.',
     link:'https://yashrao10.github.io/signal-log/', linkText:'Open the log'
   },
   'background': {
     badge:'Background', badgeClass:'badge-progress',
     body:[
-      "TIM (Technology & Information Management) major, Economics minor — a deliberate pairing, not two unrelated tracks. Everything on this page is what that combination looks like applied: build the tool, don't just read about the market it's built for."
+      "TIM (Technology & Information Management) major, Economics minor: a deliberate pairing, not two unrelated tracks. Everything on this page is what that combination looks like applied: build the tool, don't just read about the market it's built for."
     ]
   },
   'highlights': {
-    badge:'11 results', badgeClass:'badge-live',
+    badge:'13 results', badgeClass:'badge-live',
     body:[
       "The concrete outcomes behind the tiles above, in one place:"
     ],
-    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result — the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output — root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it — found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls — caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling — a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap — every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.<br><b>AI Tool Qualification:</b> a cold independent re-execution of its own DO-330 verification pass found five points where the prose outran the cited test — three fixed with new assertions, three accepted as already source-backed.'
+    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result: the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output, root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it, and found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls, and caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling: a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap: every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.<br><b>AI Tool Qualification:</b> a cold independent re-execution of its own DO-330 verification pass found five points where the prose outran the cited test: three fixed with new assertions, three accepted as already source-backed.<br><b>Connectivity Cost Index:</b> Starlink beats 5G home internet on cost per Mbps in all 51 states/DC, yet costs 4.3x to 49x more than wired service wherever wired service exists.<br><b>spec-conformance-evals:</b> 85.2% conformance over 330 samples, and hand-grading caught the automated grader inventing its own justification twice.'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
     body:[
-      "A hand-built classifier that labels the current macro regime — Hawkish Tightening, Dovish Easing, Inverted Curve/Recession Risk, Stagflation-ish, Disinflation/Goldilocks, or Neutral — off the 2s10s spread, Fed funds trend, CPI trend, and unemployment trend, then shows how all 11 GICS sector SPDRs have actually performed historically in that regime, back to 1999.",
-      "Explicitly documented as a hand-built ruleset, not a peer-reviewed model — and honest about its own blind spot: it trades on a trailing 6-month window, so it can lag a real policy pivot until enough post-pivot months accumulate."
+      "A hand-built classifier that labels the current macro regime (Hawkish Tightening, Dovish Easing, Inverted Curve/Recession Risk, Stagflation-ish, Disinflation/Goldilocks, or Neutral) off the 2s10s spread, Fed funds trend, CPI trend, and unemployment trend, then shows how all 11 GICS sector SPDRs have actually performed historically in that regime, back to 1999.",
+      "Explicitly documented as a hand-built ruleset, not a peer-reviewed model, and honest about its own blind spot: it trades on a trailing 6-month window, so it can lag a real policy pivot until enough post-pivot months accumulate."
     ],
-    finding:'<b>Caught its own limits:</b> a pivot-detection check was added to flag exactly this lag — then tested against a real hawkish pivot and correctly did NOT fire, because the pivot was a forward-looking dot-plot signal, not yet present in the realized-rate data the model actually sees.',
+    finding:'<b>Caught its own limits:</b> a pivot-detection check was added to flag exactly this lag, then tested against a real hawkish pivot and correctly did NOT fire, because the pivot was a forward-looking dot-plot signal, not yet present in the realized-rate data the model actually sees.',
     link:'https://yashrao10.github.io/signal-log/', linkText:'See it live on Signal Log'
   },
   'causal-toolkit': {
     badge:'Synthetic control', badgeClass:'badge-research',
     body:[
-      "Point it at any macro/company event and any treated ticker, and it runs an Abadie-Diamond-Hainmueller synthetic-control test to check whether the event actually caused a measurable break from a hand-picked peer group — or whether the \"effect\" is just riding a pre-existing trend.",
+      "Point it at any macro/company event and any treated ticker, and it runs an Abadie-Diamond-Hainmueller synthetic-control test to check whether the event actually caused a measurable break from a hand-picked peer group, or whether the \"effect\" is just riding a pre-existing trend.",
       "A fit-quality gate (fit-window RMSE vs. the treated unit's own volatility) runs before any verdict is trusted: above 1.0x, the report leads with a hard \"do not trust this gap\" warning instead of a confident-looking chart."
     ],
-    finding:'<b>Also notable:</b> the GOOGL capex-guidance case study found the sell-off was a shared hyperscaler re-pricing move, not a GOOGL-specific punishment — MSFT\'s placebo gap was actually larger.',
+    finding:'<b>Also notable:</b> the GOOGL capex-guidance case study found the sell-off was a shared hyperscaler re-pricing move, not a GOOGL-specific punishment: MSFT\'s placebo gap was actually larger.',
     link:'causal-toolkit/index.html', linkText:'Browse case studies'
   },
   'agent-tooling': {
     badge:'4 built, validated', badgeClass:'badge-research',
     body:[
-      "A set of custom coding agents, each built only for a workflow that's genuinely recurring and checklist-heavy across real sessions — not one general-purpose assistant, since that's easy to build and hard to actually trust. One handles a financial data-sync-and-verification loop, one renders documents against a fixed template and print pipeline, one runs a build-test-coverage loop on embedded C code, and one does guided read-only navigation of an internal tool.",
-      "Each agent encodes hard-won process rules directly into its own prompt — the specific gotchas, verification steps, and defaults learned the hard way in earlier sessions — so a lesson learned once doesn't have to get relearned by hand every time."
+      "A set of custom coding agents, each built only for a workflow that's genuinely recurring and checklist-heavy across real sessions, not one general-purpose assistant, since that's easy to build and hard to actually trust. One handles a financial data-sync-and-verification loop, one renders documents against a fixed template and print pipeline, one runs a build-test-coverage loop on embedded C code, and one does guided read-only navigation of an internal tool.",
+      "Each agent encodes hard-won process rules directly into its own prompt (the specific gotchas, verification steps, and defaults learned the hard way in earlier sessions), so a lesson learned once doesn't have to get relearned by hand every time."
     ],
-    finding:'<b>Caught a real bug on its first live run:</b> one agent\'s own checklist had a wrong directional rule baked in for a volatility ETP — documented as moving "inversely" to spot VIX, when it actually moves the same direction. It flagged the contradiction against that day\'s own market narrative instead of blindly applying the wrong rule, and got corrected on the spot.'
+    finding:'<b>Caught a real bug on its first live run:</b> one agent\'s own checklist had a wrong directional rule baked in for a volatility ETP, documented as moving "inversely" to spot VIX, when it actually moves the same direction. It flagged the contradiction against that day\'s own market narrative instead of blindly applying the wrong rule, and got corrected on the spot.'
   },
   'warehouse': {
     badge:'dbt + DuckDB', badgeClass:'badge-research',
     body:[
-      "A dbt + DuckDB data layer tying together the other tools on this page — portfolio performance, macro indicators, sector and regime data — into one tested source of truth, instead of numbers computed inline and duplicated across scattered scripts."
+      "A dbt + DuckDB data layer tying together the other tools on this page (portfolio performance, macro indicators, sector and regime data) into one tested source of truth, instead of numbers computed inline and duplicated across scattered scripts."
     ],
     finding:'<b>Built to close a recurring bug pattern:</b> a number computed in one dashboard script would drift out of sync with reality and get caught by hand weeks later. A single warehouse with automated tests (28/28 passing) closes that gap at the source instead of patching it after the fact each time.'
   },
   'econ-briefing': {
     badge:'FRED · on demand', badgeClass:'badge-research',
     body:[
-      "A macro snapshot pulled straight from FRED — Fed funds rate, 2-year and 10-year Treasury yields, CPI, unemployment — paired with the same regime classifier from above, showing which sectors have actually done best historically under whatever regime the data currently points to.",
+      "A macro snapshot pulled straight from FRED (Fed funds rate, 2-year and 10-year Treasury yields, CPI, unemployment), paired with the same regime classifier from above, showing which sectors have actually done best historically under whatever regime the data currently points to.",
       "Runs on demand rather than a fixed schedule, and deliberately says so in plain terms on a day with no new data instead of quietly reusing stale numbers."
     ],
-    finding:'<b>Two homes, one honesty rule:</b> a private version ties the same macro read to this portfolio\'s real sector exposure; the public version strips that part out entirely — same macro data, zero portfolio-composition leakage, on purpose.',
+    finding:'<b>Two homes, one honesty rule:</b> a private version ties the same macro read to this portfolio\'s real sector exposure; the public version strips that part out entirely: same macro data, zero portfolio-composition leakage, on purpose.',
     link:'https://yashrao10.github.io/signal-log/#econ', linkText:'See it live on Signal Log'
   },
   'connectivity-cost-index': {
-    badge:'All 50 states + DC', badgeClass:'badge-research',
+    badge:'Flagship · 50 states + DC', badgeClass:'badge-research',
     body:[
-      "A cost-per-Mbps comparison across every internet access technology — LEO satellite, GSO satellite, fiber, cable, DSL, fixed wireless — built from FCC's National Broadband Map and published ISP pricing, across all 50 states and DC rather than a hand-picked sample.",
-      "Layered with two more public datasets: Ookla's real-world speed data (advertised vs. actually measured) and NTIA's BEAD broadband-subsidy program, joined against the same market data to ask whether federal funding actually tracks where the coverage gaps are."
+      "A cost-per-Mbps comparison of every home internet technology (LEO and GSO satellite, fiber, cable, DSL, and three kinds of fixed wireless) across all 50 states and DC, built from the FCC's National Broadband Map. Fiber, cable, and DSL are priced from each state's own largest provider; satellite and 5G home internet use their single national prices.",
+      "Layered with Ookla's real-world speed tests, NTIA's BEAD broadband-subsidy filings (verified state by state against NTIA's own PDFs), and median household income, then laid out in seven parts with state maps, a state lookup with side-by-side compare, and a downloadable table."
     ],
-    finding:'<b>The premise didn\'t survive contact with the data, in a good way:</b> Starlink beats Verizon 5G Home / T-Mobile Home Internet on cost-per-Mbps in all 51 states/DC, by margins from 2.1x to 25.5x, losing only to wired infrastructure where that exists. Separately: BEAD\'s 2025 restructuring cut broadband subsidy funding by a median of 54% nationally — caught and confirmed by rebuilding the whole policy layer against real 2025 awards after the original 2023 figures turned out to be badly stale.',
+    finding:'<b>The premise didn\'t survive the data, in a good way:</b> Starlink beats 5G home internet on cost per Mbps in all 51 states/DC (by 2.1x to 25.5x), and it is the only technology without a wire that meets the FCC\'s 100/20 broadband definition everywhere; 5G home meets it in 1. Where fiber or cable reaches, though, Starlink costs 4.3x to 49x more per Mbps. On subsidies: BEAD\'s 2025 restructuring cut the median state\'s award by 62%, and satellite now serves 22% of funded locations at about a sixth of fiber\'s cost per location.',
     link:'https://yashrao10.github.io/connectivity-cost-index/', linkText:'See the live site'
+  },
+  'spec-conformance-evals': {
+    badge:'Run 5 · 85.2%', badgeClass:'badge-research',
+    body:[
+      "An LLM and agent evaluation harness that brings software-assurance discipline to behavioral testing: every test case traces to a numbered clause of the target's written spec, coverage is measured against the clause set, and clauses that can't be tested this way are documented rather than hidden. Built on inspect-ai, graded by exact match, rubric, or LLM judge, with a judge-reliability check on every rubric.",
+      "Two suites so far: 66 cases against a model spec (34 of 34 testable clauses) and 12 against a read-only agent spec. Current runs use an economy-tier model; a frontier-model re-run is next."
+    ],
+    finding:'<b>Run 5, 330 samples:</b> 85.2% conformance (Wilson 95%: 80.9 to 88.6%), with a clean drop across difficulty tiers (92.2%, 89.2%, 71.6%). Every clause under 75% was hand-read: the model resists injected instructions labeled as tool output but follows the same instruction hidden in natural-looking content. Hand-grading also caught the automated grader inventing its own justification, twice.',
+    link:'https://yashrao10.github.io/spec-conformance-evals/', linkText:'See the results dashboard'
   },
   'financial-mcp': {
     badge:'5 tools, verified', badgeClass:'badge-research',
     body:[
-      "A personal analog of the kind of unified financial-data connector larger platforms have started shipping — one MCP server exposing the Warehouse and every quant tool on this page (Regime Classifier, Factor Decomposition, FRED Nowcast, Causal Toolkit) as callable tools, so an AI agent can query all of them through one interface instead of five separate scripts.",
-      "Verified at two levels, not just one: every tool works as a direct function call, and separately over the real MCP wire protocol (list_tools + call_tool against a live client) — the two aren't the same test, and the second one is what actually matters for real use."
+      "A personal analog of the kind of unified financial-data connector larger platforms have started shipping: one MCP server exposing the Warehouse and every quant tool on this page (Regime Classifier, Factor Decomposition, FRED Nowcast, Causal Toolkit) as callable tools, so an AI agent can query all of them through one interface instead of five separate scripts.",
+      "Verified at two levels, not just one: every tool works as a direct function call, and separately over the real MCP wire protocol (list_tools + call_tool against a live client): the two aren't the same test, and the second one is what actually matters for real use."
     ],
-    finding:'<b>The protocol-level test caught a real bug the direct-call test missed:</b> one tool returned pandas timestamp objects that serialize fine inside a Python process but aren\'t JSON-encodable once they actually cross the wire. Fixed by round-tripping through explicit ISO-formatted JSON instead. The same protocol-level pass also re-surfaced Factor Decomposition\'s sector/rate attribution bug, running fresh against production code rather than relying on the earlier finding — that bug was root-caused and fixed the same week.'
+    finding:'<b>The protocol-level test caught a real bug the direct-call test missed:</b> one tool returned pandas timestamp objects that serialize fine inside a Python process but aren\'t JSON-encodable once they actually cross the wire. Fixed by round-tripping through explicit ISO-formatted JSON instead. The same protocol-level pass also re-surfaced Factor Decomposition\'s sector/rate attribution bug, running fresh against production code rather than relying on the earlier finding; that bug was root-caused and fixed the same week.'
   },
   'dal-c': {
     badge:'2,479 checks · 100% MC/DC', badgeClass:'badge-research',
     body:[
-      "A library of 15 reusable C99 components — saturating arithmetic, a fixed-point math type, CRC/COBS framing, a debounce/hysteresis/median-filter trio, a ring buffer, a rate limiter, a lookup table, a state machine, a cooperative scheduler, a PID controller, an M-of-N redundancy voter, and a watchdog — built to a Design Assurance Level C style: requirements-driven, no dynamic memory, no recursion, no unbounded loops.",
-      "Every implementation block carries a tag back to the low-level requirement it satisfies, and every requirement traces the other direction to a requirements-based test — 73 high-level and 182 low-level requirements backing 2,479 test checks, with CI failing the build below 100% line and 100% branch/condition (MC/DC) coverage on every module."
+      "A library of 15 reusable C99 components: saturating arithmetic, a fixed-point math type, CRC/COBS framing, a debounce/hysteresis/median-filter trio, a ring buffer, a rate limiter, a lookup table, a state machine, a cooperative scheduler, a PID controller, an M-of-N redundancy voter, and a watchdog, built to a Design Assurance Level C style: requirements-driven, no dynamic memory, no recursion, no unbounded loops.",
+      "Every implementation block carries a tag back to the low-level requirement it satisfies, and every requirement traces the other direction to a requirements-based test: 73 high-level and 182 low-level requirements backing 2,479 test checks, with CI failing the build below 100% line and 100% branch/condition (MC/DC) coverage on every module."
     ],
-    finding:'<b>Verified past the coverage number, not just to it:</b> a 200,000-iteration invariant fuzz harness and a full run under UBSan + ASan on gcc, clang, and -m32 sit on top of the 100% MC/DC bar — coverage alone doesn\'t catch a saturating-arithmetic edge case a fuzzer will.',
+    finding:'<b>Verified past the coverage number, not just to it:</b> a 200,000-iteration invariant fuzz harness and a full run under UBSan + ASan on gcc, clang, and -m32 sit on top of the 100% MC/DC bar: coverage alone doesn\'t catch a saturating-arithmetic edge case a fuzzer will.',
     link:'https://github.com/YashRao10/dal-c', linkText:'Browse the repo'
   },
   'mcp-ratchet': {
     badge:'195 tests · 5 real targets', badgeClass:'badge-research',
     body:[
-      "Every MCP security scanner that exists today — Cisco's, Snyk's, Invariant Labs' mcp-scan — checks a server once, at install time, and never looks again. mcp-ratchet is a static scanner plus a runtime proxy that fingerprints a server's tool surface once and can only ever detect drift against that baseline afterward — built against the documented \"rug pull\" attack class, where a tool definition silently changes after a human already approved it.",
-      "Every finding is labeled by what actually produced it, not blended together: a real Claude API call for the one judgment-based check (prompt injection), scripted deterministic rules for the rest (permission mismatches, secret scanning, dependency CVEs), and pure hashing — zero semantic judgment — for the drift fingerprint itself, which fires even on a whitespace-only change on purpose."
+      "Every MCP security scanner that exists today (Cisco's, Snyk's, Invariant Labs' mcp-scan) checks a server once, at install time, and never looks again. mcp-ratchet is a static scanner plus a runtime proxy that fingerprints a server's tool surface once and can only ever detect drift against that baseline afterward, built against the documented \"rug pull\" attack class, where a tool definition silently changes after a human already approved it.",
+      "Every finding is labeled by what actually produced it, not blended together: a real Claude API call for the one judgment-based check (prompt injection), scripted deterministic rules for the rest (permission mismatches, secret scanning, dependency CVEs), and pure hashing (zero semantic judgment) for the drift fingerprint itself, which fires even on a whitespace-only change on purpose."
     ],
     finding:'<b>Caught its own blind spot while dogfooding:</b> the secret scanner\'s file-suffix list silently skipped every real <code>.env</code> file, because Python\'s own pathlib treats <code>.env</code> as having no suffix at all. Found by running the scanner against a target that actually had one, then fixed by checking the filename directly instead of trusting the suffix.',
     link:'https://yashrao10.github.io/mcp-ratchet/', linkText:'See the live dashboard'
@@ -683,61 +727,61 @@ const PROJECTS = {
   'disclosure': {
     badge:'Policy', badgeClass:'badge-progress',
     body:[
-      "Nothing on this page, or on YR Signal, ever shows a dollar amount or position size — not trade sizes, not portfolio totals, not returns in absolute terms.",
+      "Nothing on this page, or on YR Signal, ever shows a dollar amount or position size: not trade sizes, not portfolio totals, not returns in absolute terms.",
       "That's deliberate. The point of publishing any of this is to share the reasoning and the method, not to let anyone reverse-engineer account size or copy a trade off exact numbers."
     ]
   },
   'factor-decomposition': {
     badge:'3-factor OLS', badgeClass:'badge-research',
     body:[
-      "For each holding, daily log returns are regressed against three factors — Market (SPY), Sector-excess, and Rate-excess (TLT) — orthogonalized in sequence so each beta is a clean incremental sensitivity rather than one confounded by collinearity with the others.",
+      "For each holding, daily log returns are regressed against three factors, Market (SPY), Sector-excess, and Rate-excess (TLT), orthogonalized in sequence so each beta is a clean incremental sensitivity rather than one confounded by collinearity with the others.",
       "R² is treated as a reliability gate, not a headline number: a low R² isn't a tool failure, it's itself the finding for a name that trades on its own news rather than macro factors."
     ],
-    finding:'<b>Additivity:</b> working in log returns throughout makes the split exactly additive — actual return = market + sector + rate + idiosyncratic remainder, no compounding cross-terms to reconcile.',
+    finding:'<b>Additivity:</b> working in log returns throughout makes the split exactly additive: actual return = market + sector + rate + idiosyncratic remainder, no compounding cross-terms to reconcile.',
     link:'factor-decomposition/index.html', linkText:'Browse holdings'
   },
   'fred-nowcast': {
     badge:'Bridge-equation OLS', badgeClass:'badge-research',
     body:[
-      "A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation — an estimate of what GDP is doing right now, rather than the quarter-old official print.",
-      "Every quarter is predicted in an expanding-window walk-forward backtest using only strictly prior quarters — no lookahead — and checked against the simplest possible baseline: assume this quarter's growth equals last quarter's. If the model doesn't beat that baseline, the report says so plainly instead of presenting a confident-looking nowcast anyway."
+      "A GDPNow-style nowcast of current-quarter real GDP growth, built from five higher-frequency FRED leading indicators via a bridge equation: an estimate of what GDP is doing right now, rather than the quarter-old official print.",
+      "Every quarter is predicted in an expanding-window walk-forward backtest using only strictly prior quarters (no lookahead) and checked against the simplest possible baseline: assume this quarter's growth equals last quarter's. If the model doesn't beat that baseline, the report says so plainly instead of presenting a confident-looking nowcast anyway."
     ],
-    finding:'<b>The headline number needed a caveat, so it got one:</b> out-of-sample, the model beats the naive baseline by 70% (RMSE 2.40 vs. 7.90) across 97 backtested quarters. But the 2020 COVID quarters (a -28% crash then a +34.9% rebound) make "assume no change" fail almost by definition, inflating that number. Excluding those four quarters, the honest improvement is 29% (RMSE 1.81 vs. 2.54 over 93 quarters) — real, just not the inflated headline.',
+    finding:'<b>The headline number needed a caveat, so it got one:</b> out-of-sample, the model beats the naive baseline by 70% (RMSE 2.40 vs. 7.90) across 97 backtested quarters. But the 2020 COVID quarters (a -28% crash then a +34.9% rebound) make "assume no change" fail almost by definition, inflating that number. Excluding those four quarters, the honest improvement is 29% (RMSE 1.81 vs. 2.54 over 93 quarters): real, just not the inflated headline.',
     link:'fred-nowcast/index.html', linkText:'See the current estimate'
   },
   'gpt-from-scratch': {
     badge:'BPE + KV-cache done', badgeClass:'badge-progress',
     body:[
-      "A small GPT-style decoder-only transformer, implemented from first principles in PyTorch — no nn.Transformer, no pretrained weights. The goal isn't a strong model; it's understanding every piece of the architecture underneath the LLM-based tools used daily, rather than only calling one through an API.",
-      "Built by hand: byte-level BPE tokenization (the real GPT-2/3 design — starts from 256 raw byte values, greedily merges the most frequent pair), learned token + positional embeddings, causal multi-head self-attention with a lower-triangular mask, a pre-norm residual transformer block, KV-cached autoregressive sampling, and temperature/top-k decoding."
+      "A small GPT-style decoder-only transformer, implemented from first principles in PyTorch: no nn.Transformer, no pretrained weights. The goal isn't a strong model; it's understanding every piece of the architecture underneath the LLM-based tools used daily, rather than only calling one through an API.",
+      "Built by hand: byte-level BPE tokenization (the real GPT-2/3 design: starts from 256 raw byte values, greedily merges the most frequent pair), learned token + positional embeddings, causal multi-head self-attention with a lower-triangular mask, a pre-norm residual transformer block, KV-cached autoregressive sampling, and temperature/top-k decoding."
     ],
-    finding:'<b>Status:</b> character-level baseline closed at val loss 1.6164. BPE tokenizer built from scratch (byte-level, no library) and verified round-trip correct on non-ASCII/empty/unseen input. KV-caching added as a parallel inference path — proven byte-identical to the uncached path on the same seed/prompt, and measured 1.64x faster. One honest tradeoff, not hidden: the cache evicts the oldest entry once the context window fills, so very long generations lose some positional signal the slower uncached path still has.'
+    finding:'<b>Status:</b> character-level baseline closed at val loss 1.6164. BPE tokenizer built from scratch (byte-level, no library) and verified round-trip correct on non-ASCII/empty/unseen input. KV-caching added as a parallel inference path, proven byte-identical to the uncached path on the same seed/prompt, and measured 1.64x faster. One honest tradeoff, not hidden: the cache evicts the oldest entry once the context window fills, so very long generations lose some positional signal the slower uncached path still has.'
   },
   'ai-security': {
     badge:'Phase 1 built', badgeClass:'badge-progress',
     body:[
       "Applies real AI-security practice to the custom Claude Code subagents already in use elsewhere on this machine, rather than treating \"AI security\" as an abstract topic. A prompt-injection red-team harness sends a corpus of injection/jailbreak payloads to a target agent's actual, verbatim system prompt and checks whether the response indicates it complied or held the line.",
-      "First target: the subagent with live trade-execution access plus routine ingestion of untrusted web content — exactly the profile that makes prompt injection a genuine risk rather than a hypothetical one. Every payload targets a specific, named rule from that agent's own system prompt."
+      "First target: the subagent with live trade-execution access plus routine ingestion of untrusted web content, exactly the profile that makes prompt injection a genuine risk rather than a hypothetical one. Every payload targets a specific, named rule from that agent's own system prompt."
     ],
     finding:'<b>First run:</b> 18/18 manual checks passed, and the process separately surfaced a real negation-blindness bug in an unrelated classifier.'
   },
   'consulting': {
     badge:'2 systems · 100% coverage', badgeClass:'badge-progress',
     body:[
-      "Two independent, fully synthetic aerospace software systems — one built to a stricter safety level, one to a lighter one — each carrying the complete DO-178C V-model end to end: system requirements down through low-level requirements, source code, requirements-based tests, and independently reproduced code coverage. Built specifically to demonstrate an aerospace-compliance tool's workflow, not to represent any real client system.",
-      "Both systems hit 100% line and branch coverage — and MC/DC gap analysis on top of that (checking whether each condition in a multi-part decision independently matters, not just whether every branch was hit) found 3 real gaps despite the 100% branch number, closed with new targeted tests. Full requirements-to-test traceability, on both systems, verified end to end.",
-      "The two systems are deliberately built at different assurance levels, not just two arbitrary examples — one carries roughly 71 formal objectives across its full lifecycle, the other about 62. The difference is how much independent proof each objective demands, not the underlying discipline; the point is showing the process scale with risk, not just showing two demos.",
+      "Two independent, fully synthetic aerospace software systems (one built to a stricter safety level, one to a lighter one), each carrying the complete DO-178C V-model end to end: system requirements down through low-level requirements, source code, requirements-based tests, and independently reproduced code coverage. Built specifically to demonstrate an aerospace-compliance tool's workflow, not to represent any real client system.",
+      "Both systems hit 100% line and branch coverage: and MC/DC gap analysis on top of that (checking whether each condition in a multi-part decision independently matters, not just whether every branch was hit) found 3 real gaps despite the 100% branch number, closed with new targeted tests. Full requirements-to-test traceability, on both systems, verified end to end.",
+      "The two systems are deliberately built at different assurance levels, not just two arbitrary examples: one carries roughly 71 formal objectives across its full lifecycle, the other about 62. The difference is how much independent proof each objective demands, not the underlying discipline; the point is showing the process scale with risk, not just showing two demos.",
       "Deliberately out of scope, and said so directly rather than glossed over: independence in verification, formal tool qualification, target-hardware testing, and formal configuration-management baselines. These are demo systems built to show a workflow, not full certification packages."
     ],
-    finding:'<b>Caught a real bug during test authoring, not a hypothetical one:</b> two safety thresholds sat close enough together that a single input value could trigger both at once in the same execution cycle — an interaction the original test plan hadn\'t accounted for, found only because the traceability discipline forced every case to be checked against the actual logic, not just the spec.'
+    finding:'<b>Caught a real bug during test authoring, not a hypothetical one:</b> two safety thresholds sat close enough together that a single input value could trigger both at once in the same execution cycle: an interaction the original test plan hadn\'t accounted for, found only because the traceability discipline forced every case to be checked against the actual logic, not just the spec.'
   },
   'do330-qual': {
     badge:'Candidate TQL-5', badgeClass:'badge-progress',
     body:[
-      "A worked DO-330 tool-qualification study asking a question with almost no public precedent: if a DO-178C program credits an LLM-backed assistant as a verification tool, and a drift monitor is the configuration-integrity control that catches its interface changing after approval, does that monitor itself need qualifying — and to what level? Five documents — context and TQL determination, tool operational requirements, the plan, the verification cases, and the accomplishment summary — work the question against mcp-ratchet's actual drift-detection function, not a hypothetical one.",
-      "Verdict: a defensible candidate for TQL-5 under Criteria 3, at a named commit — and the study itself turned up three real source defects in mcp-ratchet along the way, all fixed before verification closed."
+      "A worked DO-330 tool-qualification study asking a question with almost no public precedent: if a DO-178C program credits an LLM-backed assistant as a verification tool, and a drift monitor is the configuration-integrity control that catches its interface changing after approval, does that monitor itself need qualifying, and to what level? Five documents (context and TQL determination, tool operational requirements, the plan, the verification cases, and the accomplishment summary) work the question against mcp-ratchet's actual drift-detection function, not a hypothetical one.",
+      "Verdict: a defensible candidate for TQL-5 under Criteria 3, at a named commit, and the study itself turned up three real source defects in mcp-ratchet along the way, all fixed before verification closed."
     ],
-    finding:'<b>Checked its own homework, not just written it:</b> a separate cold independent re-execution and adversarial review re-ran the environment, suite, counts, and commits from scratch and returned "holds with minor caveats" — five points where the prose outran its cited test, three closed with new assertions, three accepted as already source-backed. A named human QA sign-off on a real program is the one thing still outstanding.',
+    finding:'<b>Checked its own homework, not just written it:</b> a separate cold independent re-execution and adversarial review re-ran the environment, suite, counts, and commits from scratch and returned "holds with minor caveats": five points where the prose outran its cited test, three closed with new assertions, three accepted as already source-backed. A named human QA sign-off on a real program is the one thing still outstanding.',
     link:'https://github.com/YashRao10/mcp-ratchet-do330', linkText:'Read the qualification study'
   }
 };
@@ -903,7 +947,7 @@ document.addEventListener('keydown', e=>{
         // tape surfaces what actually matters instead of reading as a flat
         // list -- ties broken by scan order (first match wins).
         const isStandout = Math.abs(q.change_pct) === maxAbsChange;
-        const title = isStandout ? `${name} — today's biggest mover` : name;
+        const title = isStandout ? `${name}: today's biggest mover` : name;
         return `<span class="ticker-item${isStandout ? ' ticker-standout' : ''}" title="${title}">
           ${isStandout ? '<span class="ticker-mover-dot" aria-hidden="true"></span>' : ''}
           <span class="ticker-sym">${q.symbol}</span>
