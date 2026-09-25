@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DELL — factor decomposition (Technology)</title>
+<title>DELL: factor decomposition (Technology)</title>
 <style>
   :root { color-scheme: dark; }
   body {
@@ -62,7 +62,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>DELL — factor decomposition (Technology)</h1>
+  <h1>DELL: factor decomposition (Technology)</h1>
   <div class="subtitle">How much of DELL's move over the window is systematic (market, XLK sector-excess, rate-excess via TLT) vs. idiosyncratic (stock-specific).</div>
 
   <div class="card">
@@ -72,13 +72,13 @@
   <svg viewBox="0 0 760 144" width="100%"
        height="144" id="chart-svg">
     <line class="axis" x1="400.0" y1="20" x2="400.0" y2="114"/>
-    <rect class="bar" x="400.0" y="20.0" width="111.0" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="1.5" height="22" rx="1" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="1.5" height="22" rx="1" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="92.0" width="216.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
-    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="517.0" y="31.0" text-anchor="start" dominant-baseline="middle">+40.79pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="394.0" y="55.0" text-anchor="end" dominant-baseline="middle">-0.00pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="394.0" y="79.0" text-anchor="end" dominant-baseline="middle">-0.00pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="622.0" y="103.0" text-anchor="start" dominant-baseline="middle">+79.34pp</text>
+    <rect class="bar" x="400.0" y="20.0" width="145.7" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="216.0" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="391.5" y="68.0" width="8.5" height="22" rx="4" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="92.0" width="112.9" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
+    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="551.7" y="31.0" text-anchor="start" dominant-baseline="middle">+45.22pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="622.0" y="55.0" text-anchor="start" dominant-baseline="middle">+67.01pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="385.5" y="79.0" text-anchor="end" dominant-baseline="middle">-2.64pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="518.9" y="103.0" text-anchor="start" dominant-baseline="middle">+35.02pp</text>
   </svg>
   <div class="tooltip" id="chart-tooltip" style="display:none"></div>
 </div>
 <script>
-  const BAR_HOVER_DATA = [{"label": "Market", "value": 40.79}, {"label": "Sector (excess)", "value": -0.0}, {"label": "Rate (excess)", "value": -0.0}, {"label": "Idiosyncratic", "value": 79.345}];
+  const BAR_HOVER_DATA = [{"label": "Market", "value": 45.216}, {"label": "Sector (excess)", "value": 67.013}, {"label": "Rate (excess)", "value": -2.638}, {"label": "Idiosyncratic", "value": 35.021}];
 </script>
 
   </div>
@@ -86,24 +86,24 @@
   <div class="card">
     <h2>Factor betas</h2>
     <div class="kv">
-      <div><span class="k">Beta &middot; Market (SPY)</span>+1.98</div>
-      <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+1.67</div>
-      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>+0.43</div>
-      <div><span class="k">R&sup2;</span>0.26</div>
-      <div><span class="k">Window</span>2025-06-30 &rarr; 2026-07-31 (274 trading days)</div>
+      <div><span class="k">Beta &middot; Market (SPY)</span>+2.24</div>
+      <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+1.62</div>
+      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>+0.74</div>
+      <div><span class="k">R&sup2;</span>0.27</div>
+      <div><span class="k">Window</span>2025-08-22 &rarr; 2026-09-24 (273 trading days)</div>
     </div>
   </div>
 
   <div class="card">
     <h2>Read</h2>
-    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.26 — these three factors explain some but not most of DELL's day-to-day variance. Treat the split below as directional.</p>
-<p>Of DELL's +120.1pp move over this window, <strong>+79.3pp (66% of the total magnitude)</strong> is idiosyncratic — not explained by riding market, sector, or rate moves. The rest (+40.8pp) came from systematic exposure: market +40.8pp, sector -0.0pp, rate -0.0pp.</p></div>
+    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.27; these three factors explain some but not most of DELL's day-to-day variance. Treat the split below as directional.</p>
+<p>Of DELL's +144.6pp move over this window, <strong>+35.0pp (24% of the total magnitude)</strong> is idiosyncratic, not explained by riding market, sector, or rate moves. The rest (+109.6pp) came from systematic exposure: market +45.2pp, sector +67.0pp, rate -2.6pp.</p></div>
   </div>
 
-  <div class="footer">Generated 2026-08-01 18:46 UTC &middot; factor-decomposition &middot; simple
+  <div class="footer">Generated 2026-09-25 07:03 UTC &middot; factor-decomposition &middot; simple
     3-factor OLS (market, sector-excess, rate-excess, mutually orthogonalized) &middot;
     log returns, additive over the window &middot; a transparent estimate, not a commercial
-    risk model &mdash; treat betas as directional, always check R&sup2; first.</div>
+    risk model: treat betas as directional, always check R&sup2; first.</div>
 </div>
 <script>
 function onBarHover(evt, i) {

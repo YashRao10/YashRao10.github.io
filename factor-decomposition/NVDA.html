@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NVDA — factor decomposition (Technology)</title>
+<title>NVDA: factor decomposition (Technology)</title>
 <style>
   :root { color-scheme: dark; }
   body {
@@ -62,7 +62,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>NVDA — factor decomposition (Technology)</h1>
+  <h1>NVDA: factor decomposition (Technology)</h1>
   <div class="subtitle">How much of NVDA's move over the window is systematic (market, XLK sector-excess, rate-excess via TLT) vs. idiosyncratic (stock-specific).</div>
 
   <div class="card">
@@ -72,13 +72,13 @@
   <svg viewBox="0 0 760 144" width="100%"
        height="144" id="chart-svg">
     <line class="axis" x1="400.0" y1="20" x2="400.0" y2="114"/>
-    <rect class="bar" x="400.0" y="20.0" width="186.2" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="145.6" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="3.9" height="22" rx="1" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="184.0" y="92.0" width="216.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
-    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="592.2" y="31.0" text-anchor="start" dominant-baseline="middle">+37.45pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="551.6" y="55.0" text-anchor="start" dominant-baseline="middle">+29.29pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="409.9" y="79.0" text-anchor="start" dominant-baseline="middle">+0.79pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="178.0" y="103.0" text-anchor="end" dominant-baseline="middle">-43.44pp</text>
+    <rect class="bar" x="400.0" y="20.0" width="163.1" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="156.6" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="3.3" height="22" rx="1" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="184.0" y="92.0" width="216.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
+    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="569.1" y="31.0" text-anchor="start" dominant-baseline="middle">+38.41pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="562.6" y="55.0" text-anchor="start" dominant-baseline="middle">+36.88pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="409.3" y="79.0" text-anchor="start" dominant-baseline="middle">+0.78pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="178.0" y="103.0" text-anchor="end" dominant-baseline="middle">-50.87pp</text>
   </svg>
   <div class="tooltip" id="chart-tooltip" style="display:none"></div>
 </div>
 <script>
-  const BAR_HOVER_DATA = [{"label": "Market", "value": 37.449}, {"label": "Sector (excess)", "value": 29.29}, {"label": "Rate (excess)", "value": 0.789}, {"label": "Idiosyncratic", "value": -43.443}];
+  const BAR_HOVER_DATA = [{"label": "Market", "value": 38.408}, {"label": "Sector (excess)", "value": 36.876}, {"label": "Rate (excess)", "value": 0.782}, {"label": "Idiosyncratic", "value": -50.865}];
 </script>
 
   </div>
@@ -86,25 +86,25 @@
   <div class="card">
     <h2>Factor betas</h2>
     <div class="kv">
-      <div><span class="k">Beta &middot; Market (SPY)</span>+1.86</div>
+      <div><span class="k">Beta &middot; Market (SPY)</span>+1.90</div>
       <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+0.89</div>
-      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.36</div>
-      <div><span class="k">R&sup2;</span>0.54</div>
-      <div><span class="k">Window</span>2025-07-01 &rarr; 2026-07-31 (273 trading days)</div>
+      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.22</div>
+      <div><span class="k">R&sup2;</span>0.53</div>
+      <div><span class="k">Window</span>2025-08-22 &rarr; 2026-09-24 (273 trading days)</div>
     </div>
   </div>
 
   <div class="card">
     <h2>Read</h2>
-    <div class="verdict"><p>R&sup2; is 0.54 — a reasonably reliable fit; the betas and the split below are worth reading at face value.</p>
-<p><strong>Note:</strong> the net move here (+24.1pp) is small relative to the systematic and idiosyncratic swings underneath it — they're largely offsetting each other, which is why the idiosyncratic share below exceeds 100% (it's dividing by a small net, not an error). Read the pp values themselves as the meaningful numbers here, not the ratio.</p>
-<p>Of NVDA's +24.1pp move over this window, <strong>-43.4pp (180% of the total magnitude)</strong> is idiosyncratic — not explained by riding market, sector, or rate moves. The rest (+67.5pp) came from systematic exposure: market +37.4pp, sector +29.3pp, rate +0.8pp.</p></div>
+    <div class="verdict"><p>R&sup2; is 0.53: a reasonably reliable fit; the betas and the split below are worth reading at face value.</p>
+<p><strong>Note:</strong> the net move here (+25.2pp) is small relative to the systematic and idiosyncratic swings underneath it; they're largely offsetting each other, which is why the idiosyncratic share below exceeds 100% (it's dividing by a small net, not an error). Read the pp values themselves as the meaningful numbers here, not the ratio.</p>
+<p>Of NVDA's +25.2pp move over this window, <strong>-50.9pp (202% of the total magnitude)</strong> is idiosyncratic, not explained by riding market, sector, or rate moves. The rest (+76.1pp) came from systematic exposure: market +38.4pp, sector +36.9pp, rate +0.8pp.</p></div>
   </div>
 
-  <div class="footer">Generated 2026-08-04 08:57 UTC &middot; factor-decomposition &middot; simple
+  <div class="footer">Generated 2026-09-25 07:03 UTC &middot; factor-decomposition &middot; simple
     3-factor OLS (market, sector-excess, rate-excess, mutually orthogonalized) &middot;
     log returns, additive over the window &middot; a transparent estimate, not a commercial
-    risk model &mdash; treat betas as directional, always check R&sup2; first.</div>
+    risk model: treat betas as directional, always check R&sup2; first.</div>
 </div>
 <script>
 function onBarHover(evt, i) {

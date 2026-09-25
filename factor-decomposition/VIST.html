@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>PANW: factor decomposition (Technology)</title>
+<title>VIST: factor decomposition (Energy)</title>
 <style>
   :root { color-scheme: dark; }
   body {
@@ -62,8 +62,8 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>PANW: factor decomposition (Technology)</h1>
-  <div class="subtitle">How much of PANW's move over the window is systematic (market, XLK sector-excess, rate-excess via TLT) vs. idiosyncratic (stock-specific).</div>
+  <h1>VIST: factor decomposition (Energy)</h1>
+  <div class="subtitle">How much of VIST's move over the window is systematic (market, XLE sector-excess, rate-excess via TLT) vs. idiosyncratic (stock-specific).</div>
 
   <div class="card">
     <h2>Return decomposition (log-return points, additive)</h2>
@@ -72,13 +72,13 @@
   <svg viewBox="0 0 760 144" width="100%"
        height="144" id="chart-svg">
     <line class="axis" x1="400.0" y1="20" x2="400.0" y2="114"/>
-    <rect class="bar" x="400.0" y="20.0" width="190.8" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="216.0" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="2.8" height="22" rx="1" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="92.0" width="182.7" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
-    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="596.8" y="31.0" text-anchor="start" dominant-baseline="middle">+24.31pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="622.0" y="55.0" text-anchor="start" dominant-baseline="middle">+27.52pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="408.8" y="79.0" text-anchor="start" dominant-baseline="middle">+0.35pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="588.7" y="103.0" text-anchor="start" dominant-baseline="middle">+23.28pp</text>
+    <rect class="bar" x="383.5" y="20.0" width="16.5" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="216.0" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="9.7" height="22" rx="4" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="92.0" width="52.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
+    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="377.5" y="31.0" text-anchor="end" dominant-baseline="middle">-3.30pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="622.0" y="55.0" text-anchor="start" dominant-baseline="middle">+43.24pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="415.7" y="79.0" text-anchor="start" dominant-baseline="middle">+1.94pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="458.0" y="103.0" text-anchor="start" dominant-baseline="middle">+10.40pp</text>
   </svg>
   <div class="tooltip" id="chart-tooltip" style="display:none"></div>
 </div>
 <script>
-  const BAR_HOVER_DATA = [{"label": "Market", "value": 24.311}, {"label": "Sector (excess)", "value": 27.524}, {"label": "Rate (excess)", "value": 0.352}, {"label": "Idiosyncratic", "value": 23.284}];
+  const BAR_HOVER_DATA = [{"label": "Market", "value": -3.3}, {"label": "Sector (excess)", "value": 43.243}, {"label": "Rate (excess)", "value": 1.939}, {"label": "Idiosyncratic", "value": 10.404}];
 </script>
 
   </div>
@@ -86,18 +86,18 @@
   <div class="card">
     <h2>Factor betas</h2>
     <div class="kv">
-      <div><span class="k">Beta &middot; Market (SPY)</span>+1.21</div>
-      <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+0.66</div>
-      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.10</div>
-      <div><span class="k">R&sup2;</span>0.15</div>
+      <div><span class="k">Beta &middot; Market (SPY)</span>-0.16</div>
+      <div><span class="k">Beta &middot; Sector-excess (XLE)</span>+1.06</div>
+      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.54</div>
+      <div><span class="k">R&sup2;</span>0.22</div>
       <div><span class="k">Window</span>2025-08-22 &rarr; 2026-09-24 (273 trading days)</div>
     </div>
   </div>
 
   <div class="card">
     <h2>Read</h2>
-    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.15; these three factors explain some but not most of PANW's day-to-day variance. Treat the split below as directional.</p>
-<p>Of PANW's +75.5pp move over this window, <strong>+23.3pp (31% of the total magnitude)</strong> is idiosyncratic, not explained by riding market, sector, or rate moves. The rest (+52.2pp) came from systematic exposure: market +24.3pp, sector +27.5pp, rate +0.4pp.</p></div>
+    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.22; these three factors explain some but not most of VIST's day-to-day variance. Treat the split below as directional.</p>
+<p>Of VIST's +52.3pp move over this window, <strong>+10.4pp (20% of the total magnitude)</strong> is idiosyncratic, not explained by riding market, sector, or rate moves. The rest (+41.9pp) came from systematic exposure: market -3.3pp, sector +43.2pp, rate +1.9pp.</p></div>
   </div>
 
   <div class="footer">Generated 2026-09-25 07:03 UTC &middot; factor-decomposition &middot; simple

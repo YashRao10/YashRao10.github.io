@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>MSFT — factor decomposition (Technology)</title>
+<title>MSFT: factor decomposition (Technology)</title>
 <style>
   :root { color-scheme: dark; }
   body {
@@ -62,7 +62,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>MSFT — factor decomposition (Technology)</h1>
+  <h1>MSFT: factor decomposition (Technology)</h1>
   <div class="subtitle">How much of MSFT's move over the window is systematic (market, XLK sector-excess, rate-excess via TLT) vs. idiosyncratic (stock-specific).</div>
 
   <div class="card">
@@ -72,13 +72,13 @@
   <svg viewBox="0 0 760 144" width="100%"
        height="144" id="chart-svg">
     <line class="axis" x1="400.0" y1="20" x2="400.0" y2="114"/>
-    <rect class="bar" x="400.0" y="20.0" width="165.1" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="1.5" height="22" rx="1" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="1.5" height="22" rx="1" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="184.0" y="92.0" width="216.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
-    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="571.1" y="31.0" text-anchor="start" dominant-baseline="middle">+18.53pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="394.0" y="55.0" text-anchor="end" dominant-baseline="middle">-0.00pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="394.0" y="79.0" text-anchor="end" dominant-baseline="middle">-0.00pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="178.0" y="103.0" text-anchor="end" dominant-baseline="middle">-24.24pp</text>
+    <rect class="bar" x="400.0" y="20.0" width="170.5" height="22" rx="4" fill="var(--series-1)" onmousemove="onBarHover(event,0)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="44.0" width="31.3" height="22" rx="4" fill="var(--series-2)" onmousemove="onBarHover(event,1)" onmouseleave="onBarLeave()"/><rect class="bar" x="400.0" y="68.0" width="10.2" height="22" rx="4" fill="var(--series-3)" onmousemove="onBarHover(event,2)" onmouseleave="onBarLeave()"/><rect class="bar" x="184.0" y="92.0" width="216.0" height="22" rx="4" fill="var(--series-4)" onmousemove="onBarHover(event,3)" onmouseleave="onBarLeave()"/>
+    <text class="row-label" x="120" y="31.0" text-anchor="end" dominant-baseline="middle">Market</text><text class="value-label" x="576.5" y="31.0" text-anchor="start" dominant-baseline="middle">+18.98pp</text><text class="row-label" x="120" y="55.0" text-anchor="end" dominant-baseline="middle">Sector (excess)</text><text class="value-label" x="437.3" y="55.0" text-anchor="start" dominant-baseline="middle">+3.49pp</text><text class="row-label" x="120" y="79.0" text-anchor="end" dominant-baseline="middle">Rate (excess)</text><text class="value-label" x="416.2" y="79.0" text-anchor="start" dominant-baseline="middle">+1.14pp</text><text class="row-label" x="120" y="103.0" text-anchor="end" dominant-baseline="middle">Idiosyncratic</text><text class="value-label" x="178.0" y="103.0" text-anchor="end" dominant-baseline="middle">-24.06pp</text>
   </svg>
   <div class="tooltip" id="chart-tooltip" style="display:none"></div>
 </div>
 <script>
-  const BAR_HOVER_DATA = [{"label": "Market", "value": 18.532}, {"label": "Sector (excess)", "value": -0.0}, {"label": "Rate (excess)", "value": -0.0}, {"label": "Idiosyncratic", "value": -24.238}];
+  const BAR_HOVER_DATA = [{"label": "Market", "value": 18.984}, {"label": "Sector (excess)", "value": 3.491}, {"label": "Rate (excess)", "value": 1.141}, {"label": "Idiosyncratic", "value": -24.055}];
 </script>
 
   </div>
@@ -86,25 +86,25 @@
   <div class="card">
     <h2>Factor betas</h2>
     <div class="kv">
-      <div><span class="k">Beta &middot; Market (SPY)</span>+0.90</div>
-      <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+0.23</div>
-      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.34</div>
+      <div><span class="k">Beta &middot; Market (SPY)</span>+0.94</div>
+      <div><span class="k">Beta &middot; Sector-excess (XLK)</span>+0.08</div>
+      <div><span class="k">Beta &middot; Rate-excess (TLT)</span>-0.32</div>
       <div><span class="k">R&sup2;</span>0.16</div>
-      <div><span class="k">Window</span>2025-06-30 &rarr; 2026-07-31 (274 trading days)</div>
+      <div><span class="k">Window</span>2025-08-22 &rarr; 2026-09-24 (273 trading days)</div>
     </div>
   </div>
 
   <div class="card">
     <h2>Read</h2>
-    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.16 — these three factors explain some but not most of MSFT's day-to-day variance. Treat the split below as directional.</p>
-<p><strong>Note:</strong> the net move here (-5.7pp) is small relative to the systematic and idiosyncratic swings underneath it — they're largely offsetting each other, which is why the idiosyncratic share below exceeds 100% (it's dividing by a small net, not an error). Read the pp values themselves as the meaningful numbers here, not the ratio.</p>
-<p>Of MSFT's -5.7pp move over this window, <strong>-24.2pp (425% of the total magnitude)</strong> is idiosyncratic — not explained by riding market, sector, or rate moves. The rest (+18.5pp) came from systematic exposure: market +18.5pp, sector -0.0pp, rate -0.0pp.</p></div>
+    <div class="verdict"><p><strong>Moderate confidence:</strong> R&sup2; is 0.16; these three factors explain some but not most of MSFT's day-to-day variance. Treat the split below as directional.</p>
+<p><strong>Note:</strong> the net move here (-0.4pp) is small relative to the systematic and idiosyncratic swings underneath it; they're largely offsetting each other, which is why the idiosyncratic share below exceeds 100% (it's dividing by a small net, not an error). Read the pp values themselves as the meaningful numbers here, not the ratio.</p>
+<p>Of MSFT's -0.4pp move over this window, <strong>-24.1pp (5469% of the total magnitude)</strong> is idiosyncratic, not explained by riding market, sector, or rate moves. The rest (+23.6pp) came from systematic exposure: market +19.0pp, sector +3.5pp, rate +1.1pp.</p></div>
   </div>
 
-  <div class="footer">Generated 2026-08-01 18:46 UTC &middot; factor-decomposition &middot; simple
+  <div class="footer">Generated 2026-09-25 07:03 UTC &middot; factor-decomposition &middot; simple
     3-factor OLS (market, sector-excess, rate-excess, mutually orthogonalized) &middot;
     log returns, additive over the window &middot; a transparent estimate, not a commercial
-    risk model &mdash; treat betas as directional, always check R&sup2; first.</div>
+    risk model: treat betas as directional, always check R&sup2; first.</div>
 </div>
 <script>
 function onBarHover(evt, i) {
