@@ -371,8 +371,8 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-rule"></div>
     <p>The main hub for my workspace and projects in progress: live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">17</div><div class="hero-stat-label">Projects, live + in progress</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">Honest findings: bugs &amp; limits, not hidden</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">19</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Honest findings: bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
     </div>
@@ -404,6 +404,13 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="feature-stat"><b>85.2%</b><span>conformance over 330 samples, with every weak clause hand-read and two grader errors caught</span></div>
       <div class="tile-badge badge-research">Flagship · results dashboard</div>
     </button>
+    <button class="tile feature" type="button" data-project="sleight-of-mind" aria-label="View details: Sleight of Mind">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-title">Sleight of Mind</div>
+      <div class="tile-hook">Can a language model play chess at a rating you choose, or does it give itself away? An AI capability-elicitation eval, graded move by move.</div>
+      <div class="feature-stat"><b>57/117</b><span>positions where the model played the exact same move whether told to play like a 1000 or an 1800</span></div>
+      <div class="tile-badge badge-research">Flagship · live site</div>
+    </button>
   </div>
 
   <h2 class="section-label" id="sec-live"><span class="num">01</span> Live</h2>
@@ -433,13 +440,21 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-mark">&#9733;</div>
       <div class="tile-title">Highlights</div>
       <div class="tile-hook">The real numbers behind the work above</div>
-      <div class="tile-badge badge-live">13 results</div>
+      <div class="tile-badge badge-live">15 results</div>
     </button>
 
   </div>
 
   <h2 class="section-label" id="sec-research"><span class="num">03</span> Research instruments</h2>
   <div class="cards">
+
+    <button class="tile" type="button" data-project="sleight-of-mind" aria-label="View details: Sleight of Mind">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">SM</div>
+      <div class="tile-title">Sleight of Mind</div>
+      <div class="tile-hook">Can a model play down to a rating without giving itself away?</div>
+      <div class="tile-badge badge-research">117 positions</div>
+    </button>
 
     <button class="tile" type="button" data-project="regime-classifier" aria-label="View details: Regime Classifier">
       <div class="tile-plus" aria-hidden="true">+</div>
@@ -500,6 +515,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-title">spec-conformance-evals</div>
       <div class="tile-hook">Does the model do what its spec says, with receipts?</div>
       <div class="tile-badge badge-research">Run 5 · 85.2%</div>
+    </button>
+
+    <button class="tile" type="button" data-project="ai-compliance-crosswalk" aria-label="View details: AI Compliance Crosswalk">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">AC</div>
+      <div class="tile-title">AI Compliance Crosswalk</div>
+      <div class="tile-hook">EU AI Act and NIST AI RMF, mapped to real evidence</div>
+      <div class="tile-badge badge-research">33 verdicts</div>
     </button>
 
     <button class="tile" type="button" data-project="agent-tooling" aria-label="View details: Agent Tooling">
@@ -637,11 +660,11 @@ const PROJECTS = {
     ]
   },
   'highlights': {
-    badge:'13 results', badgeClass:'badge-live',
+    badge:'15 results', badgeClass:'badge-live',
     body:[
       "The concrete outcomes behind the tiles above, in one place:"
     ],
-    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result: the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output, root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it, and found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls, and caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling: a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap: every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.<br><b>AI Tool Qualification:</b> a cold independent re-execution of its own DO-330 verification pass found five points where the prose outran the cited test: three fixed with new assertions, three accepted as already source-backed.<br><b>Connectivity Cost Index:</b> Starlink beats 5G home internet on cost per Mbps in all 51 states/DC, yet costs 4.3x to 49x more than wired service wherever wired service exists.<br><b>spec-conformance-evals:</b> 85.2% conformance over 330 samples, and hand-grading caught the automated grader inventing its own justification twice.'
+    finding:'<b>GPT From Scratch:</b> character-level baseline closed at val loss 1.6164; BPE tokenizer and KV-caching both built from scratch and correctness-proven since.<br><b>AI Security:</b> 18/18 red-team checks passed on the first run, and the process separately caught a real negation-blindness bug in an unrelated classifier.<br><b>Regime Classifier:</b> full 11-sector GICS backtest to 1999, live and auto-publishing to production.<br><b>Causal Toolkit:</b> an honest negative result: the Fed-pivot/Tech-sector "effect" everyone assumed turned out to be a pre-existing trend, not a real causal break.<br><b>Factor Decomposition:</b> found a real sector/rate attribution bug in its own production output, root-caused and fixed.<br><b>Agent Tooling:</b> 4 custom agents built and validated; one caught a real wrong-directional-rule bug in its own checklist on its first live run.<br><b>DO-178C Tool Qual:</b> executed a DO-330 tool-qualification argument end to end instead of just outlining it, and found and corrected a real error in an existing qualification-level determination along the way.<br><b>Financial Analysis MCP:</b> verified at the actual protocol level, not just direct function calls, and caught a real serialization bug the direct-call test missed, and re-surfaced Factor Decomposition\'s attribution bug along the way (fixed the same week).<br><b>dal-c:</b> 100% MC/DC coverage across 15 components isn\'t the ceiling: a 200k-iteration fuzz harness plus UBSan/ASan on gcc, clang, and -m32 run on top of it.<br><b>mcp-ratchet:</b> dogfooding its own secret scanner found a real gap: every actual <code>.env</code> file was silently skipped because Python\'s pathlib treats it as having no file suffix at all.<br><b>AI Tool Qualification:</b> a cold independent re-execution of its own DO-330 verification pass found five points where the prose outran the cited test: three fixed with new assertions, three accepted as already source-backed.<br><b>Connectivity Cost Index:</b> Starlink beats 5G home internet on cost per Mbps in all 51 states/DC, yet costs 4.3x to 49x more than wired service wherever wired service exists.<br><b>spec-conformance-evals:</b> 85.2% conformance over 330 samples, and hand-grading caught the automated grader inventing its own justification twice.<br><b>Sleight of Mind:</b> on 57 of 117 chess positions the model played the exact same move whether told to play like a 1000 or an 1800, so the rating dial barely turned.<br><b>AI Compliance Crosswalk:</b> 33 control verdicts across 3 systems came out 17 Met, 14 Partial and 2 Gap, with 1 flagged for human review.'
   },
   'regime-classifier': {
     badge:'Rule-based + backtest', badgeClass:'badge-research',
@@ -702,6 +725,24 @@ const PROJECTS = {
     ],
     finding:'<b>Run 5, 330 samples:</b> 85.2% conformance (Wilson 95%: 80.9 to 88.6%), with a clean drop across difficulty tiers (92.2%, 89.2%, 71.6%). Every clause under 75% was hand-read: the model resists injected instructions labeled as tool output but follows the same instruction hidden in natural-looking content. Hand-grading also caught the automated grader inventing its own justification, twice.',
     link:'https://yashrao10.github.io/spec-conformance-evals/', linkText:'See the results dashboard'
+  },
+  'sleight-of-mind': {
+    badge:'117 positions', badgeClass:'badge-research',
+    body:[
+      "An AI capability-elicitation eval, with chess as the testbed because every move can be graded exactly. A language model is asked to play like a human rated 1000, 1400 or 1800 on the same 117 real Lichess positions, and each move is graded twice: by Stockfish for quality and by Maia-2 for how human it looks.",
+      "The question is whether a model can play down to a chosen level convincingly, or gives itself away by ignoring the instruction or faking weakness with odd, pointless mistakes. The site walks through it as scroll scenes and includes a Play board against an engine held back to match the dial."
+    ],
+    finding:'<b>The dial barely turned:</b> on 57 of 117 positions the model played the exact same move whether told to play like a 1000 or an 1800 (45 of 117 across all three ratings). Average centipawn loss was 330, 467 and 369 for the 1000, 1400 and 1800 targets, so the middle setting played worst, and tactical positions cost 2.6x more than quiet ones (721 vs 282 centipawns). One model and 117 positions, so read it as a first result, not a verdict on the method.',
+    link:'https://yashrao10.github.io/sleight-of-mind/', linkText:'See the live site'
+  },
+  'ai-compliance-crosswalk': {
+    badge:'33 verdicts', badgeClass:'badge-research',
+    body:[
+      "Maps EU AI Act high-risk requirements (Articles 9 to 15) and NIST AI RMF (Govern, Map, Measure, Manage) to real evidence for an AI system, and produces a gap report: what is covered, what is partial, what is missing, and what needs a human decision instead of an automated guess.",
+      "Verdicts are not produced by a keyword matcher. Each one is written by reading the control next to the system's actual evidence, with a plain-English rationale, a confidence level and a self-review pass, and anything uncertain is flagged for a human. It was built first to close the gap in this workspace's own AI-security self-audit."
+    ],
+    finding:'<b>3 systems, 11 controls each:</b> 17 Met, 14 Partial, 2 Gap, with 1 verdict flagged for human review.',
+    link:'https://yashrao10.github.io/ai-compliance-crosswalk/', linkText:'See the gap report'
   },
   'financial-mcp': {
     badge:'5 tools, verified', badgeClass:'badge-research',
