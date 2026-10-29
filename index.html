@@ -371,7 +371,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-rule"></div>
     <p>The main hub for my workspace and projects in progress: live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">19</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-label">Projects, live + in progress</div></div>
       <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Honest findings: bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
@@ -533,6 +533,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">4 built, validated</div>
     </button>
 
+    <button class="tile" type="button" data-project="macd" aria-label="View details: MACD">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">MD</div>
+      <div class="tile-title">MACD</div>
+      <div class="tile-hook">One terminal, a fleet of Claude Code sessions</div>
+      <div class="tile-badge badge-research">62 tests</div>
+    </button>
+
     <button class="tile" type="button" data-project="warehouse" aria-label="View details: Warehouse">
       <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">DW</div>
@@ -692,6 +700,15 @@ const PROJECTS = {
     ],
     finding:'<b>Caught a real bug on its first live run:</b> one agent\'s own checklist had a wrong directional rule baked in for a volatility ETP, documented as moving "inversely" to spot VIX, when it actually moves the same direction. It flagged the contradiction against that day\'s own market narrative instead of blindly applying the wrong rule, and got corrected on the spot.'
   },
+  'macd': {
+    badge:'62 tests', badgeClass:'badge-research',
+    body:[
+      "MACD is a terminal tool for running several Claude Code sessions at once as a team. Split panes let you watch each session live, and a message and task router underneath lets one main session hand work to the others and see what came back.",
+      "It was built the way it is meant to be used: across two real machines, with a Windows session as the orchestrator and a MacBook session as a worker. A read-only dashboard shows the sessions, a four-lane task board and an activity timeline on top of the same state."
+    ],
+    finding:'<b>Cross-platform for real, not by assumption:</b> the terminal layer was built and checked on the Mac first because native terminal bindings are easier there, then verified on Windows. The link between the watch pane and the send command is a Unix socket on Mac and Linux and a named pipe on Windows, so neither platform is an afterthought.',
+    link:'https://yashrao10.github.io/macd/', linkText:'See the live site'
+  },
   'warehouse': {
     badge:'dbt + DuckDB', badgeClass:'badge-research',
     body:[
@@ -712,7 +729,7 @@ const PROJECTS = {
     badge:'Flagship · 50 states + DC', badgeClass:'badge-research',
     body:[
       "A cost-per-Mbps comparison of every home internet technology (LEO and GSO satellite, fiber, cable, DSL, and three kinds of fixed wireless) across all 50 states and DC, built from the FCC's National Broadband Map. Fiber, cable, and DSL are priced from each state's own largest provider; satellite and 5G home internet use their single national prices.",
-      "Layered with Ookla's real-world speed tests, NTIA's BEAD broadband-subsidy filings (verified state by state against NTIA's own PDFs), and median household income, then laid out in seven parts with state maps, a state lookup with side-by-side compare, and a downloadable table."
+      "Layered with Ookla's real-world speed tests (now three quarters, through Q3 2026), NTIA's BEAD broadband-subsidy filings (verified state by state against NTIA's own PDFs), and median household income, then laid out in seven parts with state maps, a state lookup with side-by-side compare, and a downloadable table."
     ],
     finding:'<b>The premise didn\'t survive the data, in a good way:</b> Starlink beats 5G home internet on cost per Mbps in all 51 states/DC (by 2.1x to 25.5x), and it is the only technology without a wire that meets the FCC\'s 100/20 broadband definition everywhere; 5G home meets it in 1. Where fiber or cable reaches, though, Starlink costs 4.3x to 49x more per Mbps. On subsidies: BEAD\'s 2025 restructuring cut the median state\'s award by 62%, and satellite now serves 22% of funded locations at about a sixth of fiber\'s cost per location.',
     link:'https://yashrao10.github.io/connectivity-cost-index/', linkText:'See the live site'
