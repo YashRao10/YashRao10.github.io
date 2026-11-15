@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T01:14:39Z",
+  "updated_at": "2026-11-15T08:21:46Z",
   "quotes": [
     {
       "symbol": "SPY",
@@ -19,7 +19,7 @@
     {
       "symbol": "XLV",
       "price": 188.85,
-      "change_pct": 0.34
+      "change_pct": 0.35
     },
     {
       "symbol": "XLE",
