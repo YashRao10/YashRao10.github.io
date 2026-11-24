@@ -371,7 +371,7 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="hero-rule"></div>
     <p>The main hub for my workspace and projects in progress: live tools, finished research, and the work still underway. Click into any of it below.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-label">Projects, live + in progress</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">21</div><div class="hero-stat-label">Projects, live + in progress</div></div>
       <div class="hero-stat"><div class="hero-stat-num">15</div><div class="hero-stat-label">Honest findings: bugs &amp; limits, not hidden</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">MC/DC coverage, 2 DO-178C systems</div></div>
       <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Tools, one MCP server, protocol-verified</div></div>
@@ -541,6 +541,14 @@ button.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="tile-badge badge-research">62 tests</div>
     </button>
 
+    <button class="tile" type="button" data-project="agentic-engineering-workflow" aria-label="View details: Agentic Engineering Workflow">
+      <div class="tile-plus" aria-hidden="true">+</div>
+      <div class="tile-mark">AW</div>
+      <div class="tile-title">Agentic Workflow</div>
+      <div class="tile-hook">An engineering team made of agents, in 3D</div>
+      <div class="tile-badge badge-live">Live walkthrough</div>
+    </button>
+
     <button class="tile" type="button" data-project="warehouse" aria-label="View details: Warehouse">
       <div class="tile-plus" aria-hidden="true">+</div>
       <div class="tile-mark">DW</div>
@@ -708,6 +716,15 @@ const PROJECTS = {
     ],
     finding:'<b>Cross-platform for real, not by assumption:</b> the terminal layer was built and checked on the Mac first because native terminal bindings are easier there, then verified on Windows. The link between the watch pane and the send command is a Unix socket on Mac and Linux and a named pipe on Windows, so neither platform is an afterthought.',
     link:'https://yashrao10.github.io/macd/', linkText:'See the live site'
+  },
+  'agentic-engineering-workflow': {
+    badge:'Interactive · live', badgeClass:'badge-live',
+    body:[
+      "An interactive design walkthrough of an engineering team made of AI agents. Seven development agents write requirements, design, code and tests, while a separate three-agent compliance team audits the result and can only read the shared record. A short publishing step runs only after a clean audit, and every write waits for a person.",
+      "The page is playable. Watch a project move through the org in a flat view and a 3D view, click an agent to see what it does and how it has performed in my own test runs, try to break the firewall between the teams, and break the audit to watch it fail. The example briefs are invented and the platform names are generalized."
+    ],
+    finding:'<b>Numbers from my own runs, labeled as a small sample:</b> 15 of 17 cloud runs finished all seven development agents, test strength went from 67% to 100% of planted defects caught after a feedback fix, and 224 automated checks guard the system, none of which call a model.',
+    link:'https://yashrao10.github.io/agentic-engineering-workflow/', linkText:'See the live site'
   },
   'warehouse': {
     badge:'dbt + DuckDB', badgeClass:'badge-research',
